@@ -1,4 +1,4 @@
-/**	Tests ZLB irrelevance hypothesis in US and Japan by testing exclusion of short rate (and no kink) in Y1 equations, with credit spread
+/**	Tests ZLB irrelevance hypothesis in the US by testing exclusion of short rate (and no kink) in Y1 equations, with credit spread
 	The full model is CKSVAR
 **/
 
