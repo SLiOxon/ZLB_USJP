@@ -15,13 +15,16 @@ D(:,22:25) = Dinit(:,22:25);
 
 x = D(:,1)';
 
-% D_lim 6 by 2, first column min, second column max, first 3 rows for 1999,
-% second 3 rows for 2009
-D_lim = [min(D(:, [4 8 12 16 20 24])', [], 2), max(D(:, [5 9 13 17 21 25])', [], 2)];							% store limits for next plot
+Dinit = readmatrix("IRFy2star_US.csv");
+Dinit = Dinit(:, 2:end);
+D(:,26:33) = Dinit(:,2:9);
+
+% D_lim 8 by 2, first column min, second column max, first 4 rows for 1999,
+% second 4 rows for 2009
+D_lim = [min(D(:, [4 8 12 16 20 24 28 32])', [], 2), max(D(:, [5 9 13 17 21 25 29 33])', [], 2)];							% store limits for next plot
 D_lim(:,1) = (D_lim(:,1) >= 0).*D_lim(:,1)/1.1 + (D_lim(:,1) < 0).*D_lim(:,1)*1.1;
 D_lim(:,2) = (D_lim(:,2) >= 0).*D_lim(:,2)*1.1 + (D_lim(:,2) < 0).*D_lim(:,2)/1.1;
-D_lim([5 6], 1) = -0.25;
-D_lim(5, 1) = -0.45;
+D_lim([5 6 7 8], 1) = -0.25;
 
 areacol = [0 0 1]/1.4;
 areacol_s = [1 1 1];
@@ -31,15 +34,18 @@ axiswid = 1;
 
 figure
 
-for i = 1:6
-subplot(3,2,i);
+for i = 1:8
+subplot(4,2,i);
 plot(x,0*x,'k','LineWidth',axiswid);
 hold on
 le = plot(x,D(:,4*i)',':r','LineWidth',axiswid,'DisplayName','67% error bands');
 plot(x,D(:,4*i+1)',':r','LineWidth',axiswid);
 
 xlim([min(x) max(x)]);
-ylim([D_lim(i,1) D_lim(i,2)]);
+i_lim = -(floor(i/2)==ceil(i/2)) + i;
+y_lo = min(D_lim(i_lim,1), D_lim(i_lim+1,1));
+y_hi = max(D_lim(i_lim,2), D_lim(i_lim+1,2));
+ylim([y_lo y_hi]);
 
 p=patch([x fliplr(x)], [D(:,4*i-2)' fliplr(D(:,4*i-1)')], areacol);
 p.FaceAlpha = transp;
@@ -60,6 +66,9 @@ end
 if i == 5 
     ylabel('Federal Funds Rate'); 
 end
+if i == 7 
+    ylabel('Shadow Rate'); 
+end
 
 end
 
@@ -77,12 +86,16 @@ D(:,22:25) = Dinit(:,22:25);
 
 x = D(:,1)';
 
+Dinit = readmatrix("IRFy2star_JP.csv");
+Dinit = Dinit(:, 2:end);
+D(:,26:33) = Dinit(:,2:9);
+
 % D_lim 6 by 2, first column min, second column max, first 3 rows for 1999,
 % second 3 rows for 2009
-D_lim = [min(D(:, [4 8 12 16 20 24])', [], 2), max(D(:, [5 9 13 17 21 25])', [], 2)];							% store limits for next plot
+D_lim = [min(D(:, [4 8 12 16 20 24 28 32])', [], 2), max(D(:, [5 9 13 17 21 25 29 33])', [], 2)];							% store limits for next plot
 D_lim(:,1) = (D_lim(:,1) >= 0).*D_lim(:,1)/1.1 + (D_lim(:,1) < 0).*D_lim(:,1)*1.1;
 D_lim(:,2) = (D_lim(:,2) >= 0).*D_lim(:,2)*1.1 + (D_lim(:,2) < 0).*D_lim(:,2)/1.1;
-D_lim([5 6], 1) = -0.25;
+D_lim([5 6 7 8], 1) = -0.25;
 
 areacol = [0 0 1]/1.4;
 areacol_s = [1 1 1];
@@ -92,15 +105,18 @@ axiswid = 1;
 
 figure
 
-for i = 1:6
-subplot(3,2,i);
+for i = 1:8
+subplot(4,2,i);
 plot(x,0*x,'k','LineWidth',axiswid);
 hold on
 le = plot(x,D(:,4*i)',':r','LineWidth',axiswid, 'DisplayName','67% error bands');
 plot(x,D(:,4*i+1)',':r','LineWidth',axiswid);
 
 xlim([min(x) max(x)]);
-ylim([D_lim(i,1) D_lim(i,2)]);
+i_lim = -(floor(i/2)==ceil(i/2)) + i;
+y_lo = min(D_lim(i_lim,1), D_lim(i_lim+1,1));
+y_hi = max(D_lim(i_lim,2), D_lim(i_lim+1,2));
+ylim([y_lo y_hi]);
 
 p=patch([x fliplr(x)], [D(:,4*i-2)' fliplr(D(:,4*i-1)')], areacol);
 p.FaceAlpha = transp;
@@ -121,6 +137,9 @@ end
 if i == 5 
     ylabel('Call Rate'); 
 end
+if i == 7 
+    ylabel('Shadow Rate'); 
+end
 
 end
 
@@ -128,12 +147,12 @@ end
 
 D = readmatrix("IRFlimits_horz_US.csv"); %file must have no header and different series must be in columns
 D = D(:, 2:end);
-D(131:135, [3:4,9:10,15:16]) = NaN;
-D(127:135, [5:6,11:12,17:18]) = NaN;
+D(131:135, [3:4,9:10,15:16,21:22]) = NaN;
+D(127:135, [5:6,11:12,17:18,23:24]) = NaN;
 
 % D_lim 9 by 2, first column min, second column max, first 3 rows for 1999,
 % second 3 rows for 2009
-D_lim = [min(D(:, [1 3 5 7 9 11 13 15 17])', [], 2), max(D(:, [2 4 6 8 10 12 14 16 18])', [], 2)];							% store limits for next plot
+D_lim = [min(D(:, [1 3 5 7 9 11 13 15 17 19 21 23])', [], 2), max(D(:, [2 4 6 8 10 12 14 16 18 20 22 24])', [], 2)];							% store limits for next plot
 D_lim(:,1) = (D_lim(:,1) >= 0).*D_lim(:,1)/1.1 + (D_lim(:,1) < 0).*D_lim(:,1)*1.1;
 D_lim(:,2) = (D_lim(:,2) >= 0).*D_lim(:,2)*1.1 + (D_lim(:,2) < 0).*D_lim(:,2)/1.1;
 
@@ -152,10 +171,10 @@ xdata2 = linspace(starttime, endtime, 130);
 endtime3 = datenum('01-oct-2016','dd-mmm-yyyy');
 xdata3 = linspace(starttime, endtime, 126);
 
-for i = 1:9
-subplot(3,3,i);
+for i = 1:12
+subplot(4,3,i);
 
-if (i==1)|(i==4)|(i==7)
+if (i==1)|(i==4)|(i==7)|(i==10)
     plot(xdata,0*xdata,'k','LineWidth',axiswid);
     hold on
 
@@ -166,9 +185,10 @@ if (i==1)|(i==4)|(i==7)
     p.FaceAlpha = transp;
     p.EdgeAlpha = 0;
     
-    datetick('x','yyyy','keeplimits');
+    xticks([datenum('01-jan-1990','dd-mmm-yyyy') datenum('01-jan-2000','dd-mmm-yyyy') datenum('01-jan-2010','dd-mmm-yyyy')]);
+    datetick('x','yyyy','keeplimits','keepticks');
 end
-if (i==2)|(i==5)|(i==8)
+if (i==2)|(i==5)|(i==8)|(i==11)
     plot(xdata2,0*xdata2,'k','LineWidth',axiswid);
     hold on
 
@@ -179,9 +199,10 @@ if (i==2)|(i==5)|(i==8)
     p.FaceAlpha = transp;
     p.EdgeAlpha = 0;
     
-    datetick('x','yyyy','keeplimits');
+    xticks([datenum('01-jan-1990','dd-mmm-yyyy') datenum('01-jan-2000','dd-mmm-yyyy') datenum('01-jan-2010','dd-mmm-yyyy')]);
+    datetick('x','yyyy','keeplimits','keepticks');
 end
-if (i==3)|(i==6)|(i==9)
+if (i==3)|(i==6)|(i==9)|(i==12)
     plot(xdata3,0*xdata3,'k','LineWidth',axiswid);
     hold on
 
@@ -192,7 +213,8 @@ if (i==3)|(i==6)|(i==9)
     p.FaceAlpha = transp;
     p.EdgeAlpha = 0;
     
-    datetick('x','yyyy','keeplimits');
+    xticks([datenum('01-jan-1990','dd-mmm-yyyy') datenum('01-jan-2000','dd-mmm-yyyy') datenum('01-jan-2010','dd-mmm-yyyy')]);
+    datetick('x','yyyy','keeplimits','keepticks');
 end
 % p.FaceAlpha = transp;
 % p.EdgeAlpha = 0;
@@ -214,6 +236,9 @@ end
 if i == 7
     ylabel('Federal Funds Rate'); 
 end
+if i == 10
+    ylabel('Shadow Rate'); 
+end
 
 end
 
@@ -221,12 +246,12 @@ end
 
 D = readmatrix("IRFlimits_horz_JP.csv"); %file must have no header and different series must be in columns
 D = D(:, 2:end);
-D(131:135, [3:4,9:10,15:16]) = NaN;
-D(127:135, [5:6,11:12,17:18]) = NaN;
+D(131:135, [3:4,9:10,15:16,21:22]) = NaN;
+D(127:135, [5:6,11:12,17:18,23:24]) = NaN;
 
 % D_lim 9 by 2, first column min, second column max, first 3 rows for 1999,
 % second 3 rows for 2009
-D_lim = [min(D(:, [1 3 5 7 9 11 13 15 17])', [], 2), max(D(:, [2 4 6 8 10 12 14 16 18])', [], 2)];							% store limits for next plot
+D_lim = [min(D(:, [1 3 5 7 9 11 13 15 17 19 21 23])', [], 2), max(D(:, [2 4 6 8 10 12 14 16 18 20 22 24])', [], 2)];					% store limits for next plot
 D_lim(:,1) = (D_lim(:,1) >= 0).*D_lim(:,1)/1.1 + (D_lim(:,1) < 0).*D_lim(:,1)*1.1;
 D_lim(:,2) = (D_lim(:,2) >= 0).*D_lim(:,2)*1.1 + (D_lim(:,2) < 0).*D_lim(:,2)/1.1;
 
@@ -245,10 +270,10 @@ xdata2 = linspace(starttime, endtime, 130);
 endtime3 = datenum('01-oct-2016','dd-mmm-yyyy');
 xdata3 = linspace(starttime, endtime, 126);
 
-for i = 1:9
-subplot(3,3,i);
+for i = 1:12
+subplot(4,3,i);
 
-if (i==1)|(i==4)|(i==7)
+if (i==1)|(i==4)|(i==7)|(i==10)
     plot(xdata,0*xdata,'k','LineWidth',axiswid);
     hold on
 
@@ -259,9 +284,10 @@ if (i==1)|(i==4)|(i==7)
     p.FaceAlpha = transp;
     p.EdgeAlpha = 0;
     
-    datetick('x','yyyy','keeplimits');
+    xticks([datenum('01-jan-1990','dd-mmm-yyyy') datenum('01-jan-2000','dd-mmm-yyyy') datenum('01-jan-2010','dd-mmm-yyyy')]);
+    datetick('x','yyyy','keeplimits','keepticks');
 end
-if (i==2)|(i==5)|(i==8)
+if (i==2)|(i==5)|(i==8)|(i==11)
     plot(xdata2,0*xdata2,'k','LineWidth',axiswid);
     hold on
 
@@ -272,9 +298,10 @@ if (i==2)|(i==5)|(i==8)
     p.FaceAlpha = transp;
     p.EdgeAlpha = 0;
     
-    datetick('x','yyyy','keeplimits');
+    xticks([datenum('01-jan-1990','dd-mmm-yyyy') datenum('01-jan-2000','dd-mmm-yyyy') datenum('01-jan-2010','dd-mmm-yyyy')]);
+    datetick('x','yyyy','keeplimits','keepticks');
 end
-if (i==3)|(i==6)|(i==9)
+if (i==3)|(i==6)|(i==9)|(i==12)
     plot(xdata3,0*xdata3,'k','LineWidth',axiswid);
     hold on
 
@@ -285,7 +312,8 @@ if (i==3)|(i==6)|(i==9)
     p.FaceAlpha = transp;
     p.EdgeAlpha = 0;
     
-    datetick('x','yyyy','keeplimits');
+    xticks([datenum('01-jan-1990','dd-mmm-yyyy') datenum('01-jan-2000','dd-mmm-yyyy') datenum('01-jan-2010','dd-mmm-yyyy')]);
+    datetick('x','yyyy','keeplimits','keepticks');
 end
 % p.FaceAlpha = transp;
 % p.EdgeAlpha = 0;
@@ -306,6 +334,9 @@ if i == 4
 end
 if i == 7
     ylabel('Call Rate'); 
+end
+if i == 10
+    ylabel('Shadow Rate'); 
 end
 
 end

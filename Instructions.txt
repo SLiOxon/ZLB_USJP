@@ -1,5 +1,7 @@
 ﻿Instructions:
 
+Before replication, please install the MaxSA package for OxMetrics (https://personal.vu.nl/c.s.bos/software/maxsa.html).
+
 To replicate results in tables, please execute Ox codes with corresponding names.
 
-To replicate Figures 5-8 and 13-14, execute the Matlab code ‘plotdata.m’. The data files for this code are produced by executing the Ox code ‘FiguresIRFs.ox’.
+To replicate Figures 5-8 and 13-14, execute the Matlab code ‘plotdata.m’. The data files for this code are produced by executing the Ox code ‘Figures_5-8&13-14.ox’.
