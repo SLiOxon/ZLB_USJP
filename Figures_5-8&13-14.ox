@@ -12,8 +12,8 @@ class CKSVARshadow : CKSVAR
 {
 	CKSVARshadow();
 	GetShadow(const vY2bar, const xi);
-	GetIRFbounds(const dcoverage, const ximin, const ximax);
-	funcIRF0(const avIRF, const vP);
+	GetIRFbounds(const dcoverage, const ximin, const ximax, ...);
+	funcIRF0(const avIRF, const vP, ...);
 	fcritIM(const avF, const vX);
 	fJacoIM(const avF, const vX);
 	decl m_dterm1, m_dterm2;		// constants in equation of Imbens and Manski critical value
@@ -56,19 +56,30 @@ CKSVARshadow::GetShadow(const vY2bar, const xi)
 	decl arg = (1-gamma*betabar)/(1-xi*gamma*betabar);
 	return vY2bar .> m_vb .? vY2bar .: vY2bar*arg + (1-arg)*m_vb;
 }
-CKSVARshadow::funcIRF0(const avIRF, const vP)
+CKSVARshadow::funcIRF0(const avIRF, const vP, ...)
 /** like funcIRF, but dropping the ones corresponding to second betabar solution when there are two
 **/
 {
-	decl mIRFs, ires;
-	ires = this.funcIRF(&mIRFs, vP);
+	decl mIRFs, mIRFy2s, ires;
+	decl avIRFy2star = <>;
+	if(sizeof(va_arglist())){
+		avIRFy2star = va_arglist()[0];
+		avIRFy2star[0] = <>;
+	}
+	ires = this.funcIRF(&mIRFs, vP, &mIRFy2s);
 	mIRFs = shape(mIRFs,m_iSol*(m_cY1+1), m_cHorizon+1);
-	if(m_iSol>1)
+	mIRFy2s = shape(mIRFy2s, m_iSol, m_cHorizon+1);
+	if(m_iSol>1){
 		mIRFs = mIRFs[:m_cY1][];			// drop second solution
+		mIRFy2s = mIRFy2s[0][];			// drop second solution
+	}
 	avIRF[0] = vec(mIRFs);
+	if(sizeof(va_arglist())){
+		avIRFy2star[0] = vec(mIRFy2s);
+	}
 	return ires;
 }
-CKSVARshadow::GetIRFbounds(const dcoverage, const ximin, const ximax)
+CKSVARshadow::GetIRFbounds(const dcoverage, const ximin, const ximax, ...)
 /** Computes error bands on the bounds of Impulse Response function to structural shock to Y2*
 	@param dcoverage, double, in (0,1).
 	@param ximin, double, minimum value of xi
@@ -76,20 +87,29 @@ CKSVARshadow::GetIRFbounds(const dcoverage, const ximin, const ximax)
 	returns array of [m_cY][m_cHorizon+1] matrices of lower and upper confidence bands for the IRF
 **/
 {
+	decl aboundy2star = <>;
+	if(sizeof(va_arglist())){
+		aboundy2star = va_arglist()[0];
+		//aboundy2star = <>;
+	}
 	decl lambda = m_dlambda;
 	decl aresult = new array[2];
 	decl msterr, msterrhi = <>, msterrlo = <>;				// standard errors corresponding to boundaries of IRFs
+	decl msterry2s, msterrhiy2s = <>, msterrloy2s = <>;				// standard errors corresponding to boundaries of IRFs
 	decl amIRFs = new array[2];
+	decl amIRFy2s = new array[2];
 	for(decl i = 0; i < 2; ++i){
 		// set xi at the specified end points
 		if(i == 0)			
 			this.Setlambda(ximin);
 		else
 			this.Setlambda(ximax);
-		decl mIRFs;
-		funcIRF0(&mIRFs, this.GetFreePar());
+		decl mIRFs, mIRFy2s;
+		funcIRF0(&mIRFs, this.GetFreePar(), &mIRFy2s);
 		mIRFs = shape(mIRFs,(m_cY1+1), m_cHorizon+1);
+		mIRFy2s = shape(mIRFy2s,1, m_cHorizon+1);
 		amIRFs[i] = mIRFs;
+		amIRFy2s[i] = mIRFy2s;
 		// compute error bands at each endpoint
 		if(!m_fBootstrap){			// if you don't have bootstrapped samples, use delta method (prior estimation suggests Delta is accurate for Japan, i.e., ~ bootstrap, but not for US -- too big s.e.s)
 			decl vJac;
@@ -100,32 +120,43 @@ CKSVARshadow::GetIRFbounds(const dcoverage, const ximin, const ximax)
 		if(m_fBootstrap){
 			decl mBootPar = m_mBootData[][m_fTestUnrestr+range(1,this.GetFreeParCount())];		// retrieve bootstrapped parameter estimates
 			decl amIRF = new array[(m_cY1+1)];													// array to hold results per variable
+			decl amIRFy2 = new array[1];
 			for(decl j = 0; j < sizeof(amIRF); ++j)
 				amIRF[j] = constant(.NaN, sizeof(mBootPar),m_cHorizon+1);	// bootstrap reps in rows for IRF of var i at horizon in columns. 
+			amIRFy2 = constant(.NaN, sizeof(mBootPar),m_cHorizon+1);
 			for(decl j = 0; j < sizeof(mBootPar); ++j){
 				decl vParBoot = mBootPar[j][]';								// extract parameter estimates from jth bootstrap replication
 				decl aroots = this.GetCompanionRoots(vParBoot);
 				if(any(cabs(aroots[0]).>1) || any(cabs(aroots[1]).>1))		// if explosive roots, skip
 					continue;
-				decl arg;
-				if(!funcIRF0(&arg, vParBoot))								// if IRF computation fails, skip
+				decl arg, argy2s;
+				if(!funcIRF0(&arg, vParBoot, &argy2s))								// if IRF computation fails, skip
 					continue;									
 				arg = shape(arg,(m_cY1+1), m_cHorizon+1);
 				for(decl h = 0; h < sizeof(amIRF); ++h)
 					amIRF[h][j][] = arg[h][];
-			}		
+				argy2s = shape(argy2s, 1, m_cHorizon+1);
+				amIRFy2[j][] = argy2s;
+			}
 			msterr = new matrix[m_cY1+1][m_cHorizon+1];
+			msterry2s = new matrix[1][m_cHorizon+1];
 			for(decl h = 0; h < sizeof(amIRF); ++h)
 				msterr[h][] = sqrt(varc(deleter(amIRF[h])));
+			msterry2s = sqrt(varc(deleter(amIRFy2)));
 		}
-		if(i == 0)
-			msterrhi = msterrlo = msterr; 
+		if(i == 0){
+			msterrhi = msterrlo = msterr;
+			msterrhiy2s = msterrloy2s = msterry2s;
+		}
 		else{
 			msterrhi = mIRFs .> amIRFs[0] .? msterr .: msterrhi;
 			msterrlo = mIRFs .< amIRFs[0] .? msterr .: msterrlo;
+			msterrhiy2s = mIRFy2s .> amIRFy2s[0] .? msterry2s .: msterrhiy2s;
+			msterrloy2s = mIRFy2s .< amIRFy2s[0] .? msterry2s .: msterrloy2s;
 		}
 	}
 	decl mIRFlo = msterr, mIRFup = msterr;					// initialize dimensions
+	decl mIRFloy2s = msterry2s, mIRFupy2s = msterry2s;					// initialize dimensions
 	for(decl i = 0; i < m_cY1+1; ++i){
 		for(decl j = 0; j < m_cHorizon+1; ++j){
 			decl Delta = fabs(amIRFs[1][i][j]-amIRFs[0][i][j]);			// Imbens Manski p. 1850
@@ -137,7 +168,17 @@ CKSVARshadow::GetIRFbounds(const dcoverage, const ximin, const ximax)
 			mIRFup[i][j] = max(amIRFs[0][i][j],amIRFs[1][i][j])+dcritIM*msterrhi[i][j];
 		}
 	}
+	for(decl j = 0; j < m_cHorizon+1; ++j){
+			decl Delta = fabs(amIRFy2s[1][j]-amIRFy2s[0][j]);			// Imbens Manski p. 1850
+			m_dterm1 = Delta/max(msterrhiy2s[][j],msterrloy2s[][j]);
+			m_dterm2 = dcoverage;
+			decl dcritIM=quann(dcoverage); 							// initialize at z_alpha
+			SolveNLE(this.fcritIM, &dcritIM, -1, fJacoIM);			// compute Imbens-Manski cv
+			mIRFloy2s[][j] = min(amIRFy2s[0][j],amIRFy2s[1][j])-dcritIM*msterrloy2s[][j];
+			mIRFupy2s[][j] = max(amIRFy2s[0][j],amIRFy2s[1][j])+dcritIM*msterrhiy2s[][j];
+	}
 	aresult = {mIRFlo,mIRFup};
+	aboundy2star[0] = {mIRFloy2s,mIRFupy2s};
 	this.Setlambda(lambda);
 	return aresult;
 }
@@ -277,7 +318,7 @@ main()
 ///////// get the narrowest identified IRF set and the corresponding IRFs /////////////////////////////////////////////////////////////////////////////////////////////
 		decl dxi = 0.01, vxi = range(0,1,dxi);
 		decl vxirange, vxirestrange;	    				// hold identified range of xi
-		decl amIRF;
+		decl amIRF, amIRFy2s;
 		vxirestrange = vxi;
 		for(decl iori = 0; iori < model.GetSelEnd()-iT_irf-t0+1; ++iori){		    
 			model.SetIRF(/*horizon*/cHorizon, /*dImpulse*/-0.25, /*#MC reps*/cIRFreps, /*Origin t*/iT_irf+iori);
@@ -298,23 +339,26 @@ main()
 
 		println("Now computing IRFs at all dates over the above range of xi...");
 
-		decl msignrestr = 0, aamIRF = {};
+		decl msignrestr = 0, aamIRF = {}, aamIRFy2s = {};
 		// first collect all IRFs and sign-restrictions across all dates
 		for(decl iori = 0; iori < model.GetSelEnd()-iT_irf-t0+1; ++iori){		    
 			model.SetIRF(/*horizon*/cHorizon, /*dImpulse*/-0.25, /*#MC reps*/cIRFreps, /*Origin t*/iT_irf+iori);
-			amIRF = model.GetIRFset(vxi, &vxirange);			// computes IRFs over range of values for xi 
+			amIRF = model.GetIRFset(vxi, &vxirange, &amIRFy2s);			// computes IRFs over range of values for xi 
  			aamIRF ~= {amIRF};									// store IRFs to avoid repeating later
+			aamIRFy2s ~= {amIRFy2s};
 			// evaluate sign restrictions
 			decl msignrestri = ((!isdotfeq(amIRF[2][][SRper],0) .&& amIRF[2][][SRper] .> 0) .|| (!isdotfeq(amIRF[0][][SRper],0) .&& amIRF[0][][SRper] .< 0) .|| (!isdotfeq(amIRF[1][][SRper],0) .&& amIRF[1][][SRper] .< 0));
 			msignrestr = msignrestri .|| msignrestr;  			// combine restrictions from previous cases
 		}
 		// then remove IRFs that fail the joint sign restrictions
-		for(decl iori = 0; iori < model.GetSelEnd()-iT_irf-t0+1; ++iori)	    
+		for(decl iori = 0; iori < model.GetSelEnd()-iT_irf-t0+1; ++iori){	    
 		    for(decl j = 0; j < 3; ++j){					
 		    	aamIRF[iori][j] = deleteifr(aamIRF[iori][j], msignrestr);
 				if(j==0 && iJP)
 					  aamIRF[iori][j] = 4*aamIRF[iori][j];		// rescale the IRFs for inflation as annualised	for Japanese data
 			}
+			aamIRFy2s[iori] = deleteifr(aamIRFy2s[iori], msignrestr);
+		}
 
 //////// Compute Shadow Rate /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		decl mshadowlimits = <>;		// for Matlab plots
@@ -334,7 +378,8 @@ main()
 	   	SaveDrawWindow(sprint("Figures\\", iJP ? sprint("JP_p_",p) : "US","_shadow.eps"));
 
 ///////	plot IRFs for particular origins ////////////////////////////////////////////////////////////////////////////////////////////////////////////		
-		decl mIRFlimits = <>;		// for Matlab plots
+		decl mIRFlimits = <>, mIRFy2slimits = <>;		// for Matlab plots
+		decl y2sbounds;
 		decl iYear_zlb = iJP ? 2010 : 2009;
 		decl iquarter_zlb = 1;
 		decl iYear_nonzlb = iJP ? 1990 : 1999;
@@ -354,9 +399,10 @@ main()
 			decl iTreg = i ? iT_zlb :iT_nonzlb;
 			decl sorig = i ? sirf_origin_zlb : sirf_origin_nonzlb;
 			model.SetIRF(/*horizon*/cHorizon, /*dImpulse*/-0.25, /*#MC reps*/cIRFreps, /*Origin t*/iTreg+iT_irf);
-			[mIRFlo, mIRFup] = model.GetIRFbounds(dcoverage, min(vxi), max(vxi));
+			[mIRFlo, mIRFup] = model.GetIRFbounds(dcoverage, min(vxi), max(vxi), &y2sbounds);
 			mIRFlo[:1][SRper] = mIRFlo[:1][SRper] .> 0 .? mIRFlo[:1][SRper] .: 0;			// impose sign restrictions on C.I. as in Granziera et al step 2 on p.1096
 			mIRFup[2][SRper] = mIRFup[2][SRper] .< 0 .? mIRFup[2][SRper] .: 0;				// impose sign restrictions on C.I. as in Granziera et al step 2 on p.1096
+			y2sbounds[1][SRper] = y2sbounds[1][SRper] .< 0 .? y2sbounds[1][SRper] .: 0;
 			if(iJP){
 				mIRFlo[0][] = 4*mIRFlo[0][];
 				mIRFup[0][] = 4*mIRFup[0][];
@@ -379,10 +425,18 @@ main()
 				DrawAdjust(ADJ_AREA_Y, 2*j+i, mlimits[j][0], mlimits[j][1]);
 				mIRFlimits ~= minc(aamIRF[iTreg][j])'~maxc(aamIRF[iTreg][j])'~mIRFlo[j][]'~mIRFup[j][]';	// horizon by 24 matrix, after all loops here, each 4-column-unit are upper and lower limits, upper and lower C.I., there are 3 such 4-units for each starting point, 2 starting points
 			}
+			mIRFy2slimits ~= minc(aamIRFy2s[iTreg])'~maxc(aamIRFy2s[iTreg])'~y2sbounds[0]'~y2sbounds[1]';
+			DrawMatrix(2*3+i, aamIRFy2s[iTreg], "", 0, 1, 0, 2*ones(sizeof(aamIRFy2s[iTreg]),1));					 // IRFs at all other values of xi						 
+			DrawMatrix(2*3+i, y2sbounds[0], sprint(100*dcoverage,"\% error bands"), 0, 1, 0, 5);							
+			DrawMatrix(2*3+i, y2sbounds[1], "", 0, 1, 0, 5);	
+			DrawAxis(2*3+i, TRUE, .NaN, 0, cHorizon, 2, 2, 0, 0);
+			DrawLegend(2*3+i, 400,0, 3);
+			
 			mlimits_min[][i] = mlimits[][0];
 			mlimits_max[][i] = mlimits[][1];			
 		}
 		savemat(sprint("IRFlimits", iJP ? "_JP" : "_US", ".csv"), range(0,cHorizon)'~mIRFlimits);
+		savemat(sprint("IRFy2star", iJP ? "_JP" : "_US", ".csv"), range(0,cHorizon)'~mIRFy2slimits);
 		decl mlimits_draw = new matrix[3][2];
 		for(decl j = 0; j < 3; ++j){
 				mlimits_draw[j][] = min(mlimits_min[j][])~max(mlimits_max[j][]);							// store limits for next plot
@@ -391,7 +445,7 @@ main()
 		}		
 		ShowDrawWindow();		
 		SaveDrawWindow(sprint("Figures\\", iJP ? sprint("JP_p_",p) : "US","_Set_IRF_", 100*dcoverage, ".eps"));
-		
+
 /////// Plot IRFs across origins for different horizons ///////////////////////////////////////////////////////////////////////////////////////////////////
 		decl mIRFlimits_horz = <>;		// for Matlab plots
 		decl horz1 = 4;
@@ -400,11 +454,16 @@ main()
 		decl amIRFimp = new array[3];					   // initialise matrices for holding results
 		decl amIRFhorz1 = new array[3];
 		decl amIRFhorz2 = new array[3];
+		
 		for(decl i = 0; i < 3; ++i){
 		   amIRFimp[i] = <>;
 		   amIRFhorz1[i] = <>;
 		   amIRFhorz2[i] = <>;
 		}
+
+		decl amIRFy2simp = <>;					   // initialise matrices for holding results
+		decl amIRFy2shorz1 = <>;
+		decl amIRFy2shorz2 = <>;
 				
 		for(decl iori = 0; iori < model.GetSelEnd()-iT_irf-t0+1; ++iori){	    
 			for(decl i = 0; i < 3; ++i){
@@ -412,6 +471,9 @@ main()
 				amIRFhorz1[i] ~= aamIRF[iori][i][][horz1];
 				amIRFhorz2[i] ~= aamIRF[iori][i][][horz2];
 			}
+			amIRFy2simp ~= aamIRFy2s[iori][][0];;					  
+			amIRFy2shorz1 ~= aamIRFy2s[iori][][horz1];;
+			amIRFy2shorz2 ~= aamIRFy2s[iori][][horz2];;
 		}
 
 		decl cumIRFhorz1 = new array[3];
@@ -420,15 +482,22 @@ main()
 		   cumIRFhorz1[i] = new matrix[sizer(amIRFimp[0])][sizec(amIRFimp[0])-horz1-1];
 		   cumIRFhorz2[i] = new matrix[sizer(amIRFimp[0])][sizec(amIRFimp[0])-horz2-1];
 		}
+		decl cumIRFy2shorz1 = new matrix[sizer(amIRFimp[0])][sizec(amIRFimp[0])-horz1-1];
+		decl cumIRFy2shorz2 = new matrix[sizer(amIRFimp[0])][sizec(amIRFimp[0])-horz2-1];
+		   
 		for(decl k = 0; k < sizec(amIRFimp[0])-horz1-1; ++k)
-			for(decl ii = 0; ii < horz1+1; ++ii)
+			for(decl ii = 0; ii < horz1+1; ++ii){
 				for(decl jj =0; jj < 3; ++jj)
 					cumIRFhorz1[jj][][k] += aamIRF[k+ii][jj][][horz1-ii];
+				cumIRFy2shorz1[][k] += aamIRFy2s[k+ii][][horz1-ii];
+			}
 
 		for(decl k = 0; k < sizec(amIRFimp[0])-horz2-1; ++k)
-			for(decl ii = 0; ii < horz2+1; ++ii)
+			for(decl ii = 0; ii < horz2+1; ++ii){
 				for(decl jj =0; jj < 3; ++jj)
 					cumIRFhorz2[jj][][k] += aamIRF[k+ii][jj][][horz2-ii];
+				cumIRFy2shorz2[][k] += aamIRFy2s[k+ii][][horz2-ii];
+			}
 
 		for(decl cum = 1; cum < 2; ++cum){
 			SetDrawWindow(sprint(iJP ? "JP" : "US", " SetID IRF CKSVAR(",p,") over time"));
@@ -449,6 +518,15 @@ main()
 					mIRFlimits_horz ~= minc(mirf)'~maxc(mirf)';	// horizon by 18 matrix, after all loops here, each 2-column-unit are upper and lower limits, there are 3 such 2-units for each horizon, 3 variables
 				}
 			}
+
+			for(decl h = 0; h < 3; ++h){
+				decl mirfy2s = h == 0 ? amIRFy2simp : h == 1 ? (cum ? cumIRFy2shorz1 : amIRFy2shorz1) :
+							(cum ? cumIRFy2shorz2 : amIRFy2shorz2);
+				DrawTMatrix(3*3+h, mirfy2s, "", iYear, iquarter, 4, 0, 2*ones(sizeof(mirfy2s),1));		// IRFs at all other values of lambda
+				DrawLegend(3*3+h, 400,0, TRUE);
+				mIRFlimits_horz ~= minc(mirfy2s)'~maxc(mirfy2s)';	// horizon by 24 matrix, after all loops here, each 2-column-unit are upper and lower limits, there are 3 such 2-units for each horizon, 4 variables
+			}
+			
 			ShowDrawWindow();
 			SaveDrawWindow(sprint("Figures\\", iJP ? sprint("JP_p_",p) : "US", "_Set_IRF_", cum ? "cum" : "one_off",".eps"));
 		}
