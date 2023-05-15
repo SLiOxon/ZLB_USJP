@@ -1,4 +1,4 @@
-//	Estimates CKSVAR models for Japan and USA and computes set-identified IRFs with sign restrictions
+//	Estimates CKSVAR models for Japan and USA and computes set-identified IRFs with sign restrictions and estimated shadow rates
 
 
 #include <oxstd.oxh>
