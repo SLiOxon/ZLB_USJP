@@ -1,2 +1,2 @@
 # ZLB_USJP
-Replication codes for Ikeda et al (2021)
+Replication codes for Ikeda et al (2023)
