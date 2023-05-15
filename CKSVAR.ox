@@ -1631,7 +1631,7 @@ CKSVAR::SetRannIRForigin(const cT)
 	}
 	m_mrannIRForigin = rann(cT, m_cY1+1);			// matrix of random numbers to use in SimData()
 }
-CKSVAR::funcIRF(const avIRF, const vP)
+CKSVAR::funcIRF(const avIRF, const vP, ...)
 /** Computes IRF to structural shock to Y2*, in form needed for NumJacobian. It expects Y2 in levels.
 	@param avR, address of vector of desired IRFs
 	@param vP, vector of unrestricted (free) parameters
@@ -1639,6 +1639,11 @@ CKSVAR::funcIRF(const avIRF, const vP)
 **/
 {
 	avIRF[0] = <>;										// initialize at null, as default value when function evaluation fails
+	decl avIRFy2star = <>;
+	if(sizeof(va_arglist())){
+		avIRFy2star = va_arglist()[0];
+		avIRFy2star[0] = <>;
+	}
 	decl vpall;
 	if(!Reparameterize(&vpall, vP))						// obtain full parameter vector
 		return 0;
@@ -1732,6 +1737,7 @@ CKSVAR::funcIRF(const avIRF, const vP)
 	}
 
 	decl mIRFs = new matrix[m_iSol*k][T];
+	decl mIRFy2star = new matrix[m_iSol][T];
 	
 	decl fdraw = m_crepIRF>0;								// if cMCrep>0, you will need to draw from the distribution of the other shocks, otherwise, set those shocks to zero
 	for(decl j = 0; j < m_iSol; ++j){
@@ -1792,6 +1798,7 @@ CKSVAR::funcIRF(const avIRF, const vP)
 						+ (t ? (mu1g2t+mu2[][t-1]*vdelta') : meps1bar*mInv');						// simulated Y1 when shock = 0
 			}
 			mIRFs[j*k:((j+1)*k-1)][t] = meanc(mYt-mY0t)';
+			mIRFy2star[j][t] = meanc(my2star[][t]-my2star0[][t]);
 			for(decl j = p-1; j >= 0; --j){
 				amY[j] = j ? amY[j-1] : mYt;
 				amY0[j] = j ? amY0[j-1] : mY0t;
@@ -1811,6 +1818,10 @@ CKSVAR::funcIRF(const avIRF, const vP)
         mg2IRF[j] = dImpulse/(1 - vgamma*vbetabar)*(1 - probn(normarg1)) - diff_prob*(arg-b) + omegabar*diff_dens;
 */
 	avIRF[0] = vec(mIRFs);
+	if(sizeof(va_arglist())){
+		avIRFy2star[0] = vec(mIRFy2star);
+	}
+	
 	return !isnan(avIRF[0]);
 
 }
@@ -1858,6 +1869,7 @@ CKSVAR::GetIRFset(const vrange, ...)
 	@param 	vector, range of values to compute IDset
 	optional: vector of values of lambda for each IRF
 	optional: matrix of values of betabar for each IRF
+	optional: matrix of [cSet][cHorizon+1] matrix of IRFs for the shadow rate
 	returns array[m_cY] of [cSet][cHorizon+1] matrices of IRFs, where cSet is the number of IRFs computed over all elements of vrange
 **/
 {
@@ -1865,11 +1877,14 @@ CKSVAR::GetIRFset(const vrange, ...)
 	decl amIRF = new array[k];
 	decl vlambda = <>;								// to hold the lambda corresponding to each IRF, implicitly giving the admissible range of lambda
 	decl ambetabar = {};								// to hold the betabar corresponding to each lambda
-	decl avlam = <>, aambetabar = <>;					// address to return vlambda and mbetabar if required -- initialize to empty
+	decl amy2star = <>;								// to hold the IRFs of shadow rate to each lambda
+	decl avlam = <>, aambetabar = <>, aamy2star = <>;					// address to return vlambda and mbetabar if required -- initialize to empty
 	if(sizeof(va_arglist()))
 		avlam = va_arglist()[0];
-	if(sizeof(va_arglist())==2)
-		aambetabar = va_arglist()[1];
+	if(sizeof(va_arglist())>1)
+		aamy2star = va_arglist()[1];
+	if(sizeof(va_arglist())==3)
+		aambetabar = va_arglist()[2];
 	for(decl j = 0; j < sizeof(amIRF); ++j)
 		amIRF[j] = <>;								// initialize at empty matrices, since you don't know dimension beforehand
 
@@ -1878,15 +1893,19 @@ CKSVAR::GetIRFset(const vrange, ...)
 	for(decl i = 0; i < sizerc(vrange); ++i){
 		ranseed(111113);
 		this.Setlambda(vrange[i]);
-		decl mIRFnl = this.GetIRF(/*coverage*/0,/*Asy*/FALSE,/*Boot*/FALSE);
-		if(mIRFnl==<>)
+		decl mIRFnl_c = this.GetIRF(/*coverage*/0,/*Asy*/FALSE,/*Boot*/FALSE);
+		if(mIRFnl_c==<>)
 			continue;
+		decl mIRFnl = mIRFnl_c[0:m_iSol*(m_cY1+1)-1][];
+		decl mIRFnly2s = mIRFnl_c[m_iSol*(m_cY1+1):][];
 		for(decl j = 0; j < sizeof(amIRF); ++j)
 			amIRF[j] |= mIRFnl[j+range(0,m_iSol-1)*k][];						// collect IRFs for variable j
 		if(sizeof(avlam))
 			vlambda |= vrange[i]*ones(m_iSol,1);
 		if(sizeof(aambetabar))						
 			ambetabar ~= {m_mbetabar};				// optionally store betabar too
+		if(sizeof(aamy2star))
+			amy2star |= mIRFnly2s;
 		
 	}
 	
@@ -1896,6 +1915,8 @@ CKSVAR::GetIRFset(const vrange, ...)
 		avlam[0] = vlambda;							// return the admissible lambdas
 	if(sizeof(aambetabar))						
 		aambetabar[0] = ambetabar;					// return the admissible betabars associated with each lambda
+	if(sizeof(aamy2star))
+		aamy2star[0] = amy2star;							// return the IRFs of y2star
 	return amIRF;
 }
 CKSVAR::SetIRF(const cHorizon, const dImpulse, const cMCreps, const origin)
@@ -1968,13 +1989,14 @@ CKSVAR::GetIRF(const dcoverage, const fAsy, const fBoot)
 			if any fAsy,fBoot true AND m_iSol =1, array[1+2*fAsy+2*fBoot] of [m_cY][cHorizon+1] matrices of IRFs, and lower/upper error bands 
 **/
 {
-	decl mIRFs;
-	funcIRF(&mIRFs, this.GetFreePar());
+	decl mIRFs, mIRFy2star;
+	funcIRF(&mIRFs, this.GetFreePar(), &mIRFy2star);
 	mIRFs = shape(mIRFs,m_iSol*(m_cY1+1), m_cHorizon+1);
+	mIRFy2star = shape(mIRFy2star, m_iSol, m_cHorizon+1);
 	if(m_iSol > 1 && m_fPrint)
 		println("GetIRF: ", m_iSol, " solutions for betabar at this parameterization.");
 	if(m_iSol > 1 || (!fAsy && !fBoot) || isfeq(dcoverage,0))	// if more than one solutions, you cannot guarantee the ordering of solutions is continuous wrt the parameters, or across boostraps, so numerical differentiation or boostrap quantiles may be off 
-		return mIRFs;											// or if you don't want error bands, or if error band coverage is zero, just return the point estimates
+		return mIRFs|mIRFy2star;											// or if you don't want error bands, or if error band coverage is zero, just return the point estimates
 	//else
 	decl aresult = new array[1+2*fAsy+2*fBoot];
 	aresult[0] = mIRFs;

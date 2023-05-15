@@ -131,7 +131,7 @@ class CKSVAR : Modelbase
 	SelectIRF(const vIRFs, const mscale);		// if multiple IRFs, select the one that is closest to satisfying the sign restrictions
 	SetIRFsigns(const mSigns); 					// sets the matrix of signs of IRFs -- matrix of 1s, -1s and 0s (no restrictions)
 	SetRannIRForigin(const cT);					// sets the random numbers to use when computing origin of IRFs for sign restrictions
-	funcIRF(const avIRF, const vP);				// computes true (nonlinear) IRF, to be used with NumJacobian to obtain st error bands	
+	funcIRF(const avIRF, const vP, ...);				// computes true (nonlinear) IRF, to be used with NumJacobian to obtain st error bands	
 	funcLinearIRF(const avIRF, const vP);		// computes pseudo linear IRF, to be used with NumJacobian to obtain st error bands	
 	GetLinearIRF(const cHorizon, const amStErr);// obtains pseudo linear IRF using the identified parameters from the kinked SVAR model ignoring the ZLB constraint
 	GetCompanion(mC);							// intermediate function used in GetCompanionMatrix
