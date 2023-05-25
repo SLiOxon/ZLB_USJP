@@ -1,0 +1,35 @@
+Starting preprocessing of the model file ...
+Found 4 equation(s).
+Evaluating expressions...done
+Computing static model derivatives (order 1).
+Computing dynamic model derivatives (order 1).
+Processing outputs ...
+done
+Preprocessing completed.
+
+STEADY-STATE RESULTS:
+
+q    		 0
+r    		 0
+rnot 		 0
+pu   		 0
+
+MODEL SUMMARY
+
+  Number of variables:         4
+  Number of stochastic shocks: 1
+  Number of state variables:   2
+  Number of jumpers:           1
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables           u
+u            1.000000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   q               r            rnot              pu
+pu(-1)                      0.308648        0.061730        0.061730        0.500000
+q(-1)                       0.267742        0.053548        0.053548               0
+u                           0.617296        0.123459        0.123459        1.000000
+Total computing time : 0h00m01s

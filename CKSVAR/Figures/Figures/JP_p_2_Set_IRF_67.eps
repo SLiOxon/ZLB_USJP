@@ -1,0 +1,7174 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 432 288
+%%Creator: Ox (C) J.A. Doornik, 1994-2006.
+%%Pages: 0
+%%EndComments
+
+%functions
+/X    0 def
+/Y    0 def
+/Rot  0 def
+/tabX 0 def
+/tabW 0 def
+/colW 0 def
+/Slt      { Ltp 0 setdash Lwd setlinewidth } def
+/Solid    { [ ] 0 setdash Lwd setlinewidth } def
+/Mto      { /Y exch def /X exch def X Y moveto} def
+/Lto      { gsave dup 3 -1 roll dup 4 -1 roll newpath X Y moveto lineto stroke exch Mto grestore } def
+/mt       { moveto } def
+/lt       { lineto } def
+/Rt       { rmoveto currentpoint Mto} def
+/Rlt      { 2 copy currentpoint gsave newpath moveto rlineto stroke grestore Rt } def
+/BgnPath  { gsave newpath } def
+/EndPath  { stroke grestore} def
+/Width    { /H exch def /W exch def } def
+/SymBox   { newpath X Y moveto X W add Y lineto X W add Y H add lineto X Y H add lineto X Y lineto closepath } bind def
+/SymTriUp { newpath X Y moveto X W 2 div add Y H add lineto X W add Y lineto X Y lineto closepath } bind def
+/SymTri   { newpath X Y H add moveto X W 2 div add Y lineto X W add Y H add lineto X Y H add lineto closepath } bind def
+/SymTriUp { newpath X Y moveto X W 2 div add Y H add lineto X W add Y lineto X Y lineto closepath } bind def
+/SymCross { newpath X Y moveto X W add Y H add lineto X W add Y moveto X Y H add lineto closepath } bind def
+/SymPlus  { newpath X Y H 2 div add moveto X W add Y H 2 div add lineto X W 2 div add Y moveto X W 2 div add Y H add lineto closepath } bind def
+/SymDiam  { newpath X Y H 2 div add moveto X W 2 div add Y H add lineto X W add Y H 2 div add lineto  X W 2 div add Y lineto X Y H 2 div add lineto closepath } bind def
+/SymCirc  { 1 H W div scale newpath X W 2 div add Y H 2 div add W H div mul W 2 div 0 360 arc closepath } bind def
+/SymDash  { newpath X Y H 2 div add moveto X W add Y H 2 div add lineto closepath } bind def
+/FillStr  { closepath gsave FillColor fill grestore stroke grestore } def
+/Fill     { closepath FillColor fill grestore } def
+/FillBox  { gsave Width SymBox fill grestore } def
+/Box      { gsave Width SymBox Solid stroke grestore } def
+/Boxto    { currentpoint Mto Y sub exch X sub exch Box} def
+/FillBoxto{ currentpoint Mto Y sub exch X sub exch FillBox} def
+/Plus     { gsave Width SymPlus Solid stroke grestore } def
+/FillCir  { gsave Width SymCirc fill stroke grestore } def
+/Circle   { gsave Width SymCirc Solid stroke grestore } def
+/Dash     { gsave Width SymDash Solid stroke grestore } def
+/Cross    { gsave Width SymCross Solid stroke grestore } def
+/FillDiam { gsave Width SymDiam fill stroke grestore } def
+/Diam     { gsave Width SymDiam Solid stroke grestore } def
+/FillTri  { gsave Width SymTri  fill stroke grestore } def
+/Tri      { gsave Width SymTri  Solid stroke grestore } def
+/FillTriUp{ gsave Width SymTriUp fill stroke grestore } def
+/TriUp    { gsave Width SymTriUp Solid stroke grestore } def
+/Text     { gsave X Y moveto
+            Rot 360 eq {dup stringwidth pop neg 0 rmoveto}{Rot rotate} ifelse
+            show grestore
+          } def
+/T        { gsave
+            Rot 360 eq {dup stringwidth pop neg 0 rmoveto}{Rot rotate} ifelse
+            show Rot neg rotate currentpoint Mto grestore X Y moveto} def
+/tb0      { /tabX currentpoint pop def /tabW 0 def} def
+/tb1      { tabW currentpoint pop tabX sub gt {tabW}{currentpoint pop tabX sub} ifelse /tabW exch def } def
+/tb2      { /colW tabW def } def
+/tb3      { colW 0 rmoveto } def
+/A4       { /ptX 595.3 def /ptY 841.9 def } def
+/Letter   { /ptX 612 def /ptY 792 def } def
+/ISOLatin1{ findfont
+            dup length dict
+            begin { 1 index /FID ne {def}{pop pop} ifelse } forall
+              /Encoding ISOLatin1Encoding def
+              currentdict
+            end definefont pop } def
+/Font     { findfont exch scalefont setfont } def
+/FullPage { Landscape 1 eq { ptX ptY /ptX exch def /ptY exch def } if
+            ptX 1.5 div ptY le
+            {/ax ptX def /ay ptX 1.5 mul def}
+            {/ax ptY 1.5 div def /ay ptY def} ifelse
+            /ax ax 17000 div def ax ax scale
+            Landscape 1 eq { 90 rotate 0 ptY ax div neg translate } if
+            ptX ax div 15000 sub 2 div ptY ax div 10000 sub 2 div translate
+          } def
+/EpsPage  { 0.0288 0.0288 scale } def
+
+%lines
+/Linetype0 [ ] def  /Linewidth0 15 def
+/Linetype1 [ ] def  /Linewidth1 10 def
+/Linetype2 [ ] def  /Linewidth2 30 def
+/Linetype3 [ ] def  /Linewidth3 15 def
+/Linetype4 [ ] def  /Linewidth4 15 def
+/Linetype5 [35 35] def  /Linewidth5 15 def
+/Linetype6 [35 35] def  /Linewidth6 25 def
+/Linetype7 [35 35] def  /Linewidth7 35 def
+/Linetype8 [160 80] def  /Linewidth8 15 def
+/Linetype9 [160 80] def  /Linewidth9 25 def
+/Linetype10 [160 80] def  /Linewidth10 35 def
+/Linetype11 [ ] def  /Linewidth11 25 def
+/Linetype12 [ ] def  /Linewidth12 35 def
+/Linetype13 [ ] def  /Linewidth13 50 def
+/Linetype14 [ ] def  /Linewidth14 15 def
+/Linetype15 [ ] def  /Linewidth15 15 def
+
+%fonts
+/F0 /Times-Roman ISOLatin1
+/F1 /Symbol findfont definefont pop
+/F2 /Times-Bold ISOLatin1
+/F3 /Times-Italic ISOLatin1
+/F4 /Times-BoldItalic ISOLatin1
+/F5 /Helvetica ISOLatin1
+/F6 /Courier ISOLatin1
+/F7 /Times-Roman ISOLatin1
+/F8 /Times-Roman ISOLatin1
+/F9 /Times-Roman ISOLatin1
+
+%colors
+/BWG  16 array def
+/Gray 16 array def
+/RGB  16 array def
+% first set all to black
+0 1 15 { dup Gray exch 0 put RGB exch [0 0 0] put } for
+
+% color 0: white <-- background colour
+% color 1: black <-- foreground colour
+BWG  0 1.00 put  Gray  0 1.00 put  RGB  0 [1.00 1.00 1.00] put
+BWG  1 0.00 put  Gray  1 0.00 put  RGB  1 [0.00 0.00 0.00] put
+BWG  2 0.00 put  Gray  2 0.30 put  RGB  2 [1.00 0.00 0.00] put
+BWG  3 0.00 put  Gray  3 0.11 put  RGB  3 [0.00 0.00 1.00] put
+BWG  4 0.00 put  Gray  4 0.35 put  RGB  4 [0.00 0.50 0.50] put
+BWG  5 0.00 put  Gray  5 0.41 put  RGB  5 [1.00 0.00 1.00] put
+BWG  6 0.00 put  Gray  6 0.44 put  RGB  6 [0.00 0.75 0.00] put
+BWG  7 0.00 put  Gray  7 0.45 put  RGB  7 [0.50 0.50 0.00] put
+BWG  8 0.20 put  Gray  8 0.21 put  RGB  8 [0.50 0.00 0.50] put
+BWG  9 0.95 put  Gray  9 0.95 put  RGB  9 [1.00 1.00 0.50] put
+BWG 10 0.79 put  Gray 10 0.80 put  RGB 10 [0.50 1.00 0.50] put
+BWG 11 0.85 put  Gray 11 0.85 put  RGB 11 [0.50 1.00 1.00] put
+BWG 12 0.70 put  Gray 12 0.70 put  RGB 12 [0.00 1.00 1.00] put
+BWG 13 0.25 put  Gray 13 0.25 put  RGB 13 [0.25 0.25 0.25] put
+BWG 14 0.50 put  Gray 14 0.50 put  RGB 14 [0.50 0.50 0.50] put
+BWG 15 0.75 put  Gray 15 0.75 put  RGB 15 [0.75 0.75 0.75] put
+
+%choose a ColorModel: 0=black/white; 1=black/white/gray; 2=gray; 3=color
+/ColorModel 3 def
+
+/SetColor
+  { ColorModel 0 eq
+     { 0 eq {1 setgray}{0 setgray} ifelse }
+     { ColorModel 1 eq
+        { BWG exch get setgray}
+        { ColorModel 2 eq
+           { Gray exch get setgray}
+           { RGB exch get aload pop setrgbcolor} ifelse
+        } ifelse
+     } ifelse
+} def
+/FillColor
+  { ColorModel 3 eq
+     { setrgbcolor }
+     { add add 3 div setgray }
+     ifelse
+} def
+
+%init
+save
+1 setlinejoin
+280 /F0 Font
+10 setlinewidth
+/Ltp Linetype1 def
+/Lwd Linewidth1 def
+
+/User { /ptX 595 def /ptY 842 def} def
+%.PS uses full page printing
+%  select papersize: A4, Letter, User (in points: 72/inch)
+%  select orientation: 0 portrait mode, 1 landscape
+%  full page printing for .PS, else use EpsPage
+%.EPS defers scaling/rotation to document
+
+EpsPage
+%A4  /Landscape 1 def  FullPage
+
+%Graph start
+0 SetColor
+330 /F0 Font
+3352 9157 Mto
+203 /F0 Font
+tb0
+3352 9157 Mto
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+67 67 Rt
+406 0 Rlt
+67 -67 Rt
+1 SetColor
+(67)T
+(% error bands )T
+tb1
+3892 8954 Mto
+tb2
+0 SetColor
+3352 9157 Mto
+tb3
+0 -67 Rt
+3352 9360 FillBoxto
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+300 /F0 Font
+1407 7660 Mto
+1407 7780 Lto
+1338 7360 Mto
+(2) T
+2015 7660 Mto
+2015 7780 Lto
+1946 7360 Mto
+(4) T
+2622 7660 Mto
+2622 7780 Lto
+2553 7360 Mto
+(6) T
+3230 7660 Mto
+3230 7780 Lto
+3161 7360 Mto
+(8) T
+3838 7660 Mto
+3838 7780 Lto
+3699 7360 Mto
+(10)T
+4445 7660 Mto
+4445 7780 Lto
+4306 7360 Mto
+(12)T
+5053 7660 Mto
+5053 7780 Lto
+4914 7360 Mto
+(14)T
+5660 7660 Mto
+5660 7780 Lto
+5521 7360 Mto
+(16)T
+6268 7660 Mto
+6268 7780 Lto
+6129 7360 Mto
+(18)T
+6876 7660 Mto
+6876 7780 Lto
+6737 7360 Mto
+(20)T
+800 7660 Mto
+6876 7660 Lto
+14 SetColor
+/Ltp { Linetype14 } def /Lwd { Linewidth14 } def Slt
+800 7817 Mto
+6876 7817 Lto
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+/Rot 90 def
+800 7817 Mto
+860 7817 Lto
+800 8083 Mto
+860 8083 Lto
+800 8349 Mto
+860 8349 Lto
+800 8615 Mto
+860 8615 Lto
+800 8881 Mto
+860 8881 Lto
+800 9147 Mto
+860 9147 Lto
+800 7817 Mto
+920 7817 Lto
+700 7748 Mto
+(0) T
+800 8349 Mto
+920 8349 Lto
+700 8174 Mto
+(0.1)T
+800 8881 Mto
+920 8881 Lto
+700 8706 Mto
+(0.2)T
+800 7660 Mto
+800 9360 Lto
+/Rot 0 def
+1 SetColor
+1100 9420 Mto
+(IRF to monetary policy shock in 1990q1)T
+360 /F0 Font
+1 SetColor
+/Rot 90 def
+360 7862 Mto
+(Inflation)T
+/Rot 0 def
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7903 mt
+1103 8059 lt
+1407 7986 lt
+1711 7972 lt
+2015 7988 lt
+2319 7997 lt
+2622 7997 lt
+2926 7989 lt
+3230 7977 lt
+3534 7960 lt
+3838 7941 lt
+4141 7921 lt
+4445 7902 lt
+4749 7883 lt
+5053 7865 lt
+5357 7850 lt
+5660 7837 lt
+5964 7827 lt
+6268 7818 lt
+6572 7812 lt
+6876 7808 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7903 mt
+1103 8063 lt
+1407 7993 lt
+1711 7979 lt
+2015 7994 lt
+2319 8003 lt
+2622 8001 lt
+2926 7993 lt
+3230 7980 lt
+3534 7962 lt
+3838 7943 lt
+4141 7922 lt
+4445 7902 lt
+4749 7882 lt
+5053 7865 lt
+5357 7849 lt
+5660 7836 lt
+5964 7826 lt
+6268 7817 lt
+6572 7811 lt
+6876 7807 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7904 mt
+1103 8068 lt
+1407 7999 lt
+1711 7985 lt
+2015 8000 lt
+2319 8008 lt
+2622 8006 lt
+2926 7997 lt
+3230 7983 lt
+3534 7964 lt
+3838 7944 lt
+4141 7923 lt
+4445 7902 lt
+4749 7882 lt
+5053 7864 lt
+5357 7848 lt
+5660 7835 lt
+5964 7825 lt
+6268 7816 lt
+6572 7810 lt
+6876 7806 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7904 mt
+1103 8072 lt
+1407 8005 lt
+1711 7992 lt
+2015 8007 lt
+2319 8014 lt
+2622 8011 lt
+2926 8001 lt
+3230 7986 lt
+3534 7967 lt
+3838 7945 lt
+4141 7923 lt
+4445 7902 lt
+4749 7881 lt
+5053 7863 lt
+5357 7847 lt
+5660 7834 lt
+5964 7824 lt
+6268 7815 lt
+6572 7810 lt
+6876 7806 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7905 mt
+1103 8077 lt
+1407 8012 lt
+1711 7999 lt
+2015 8013 lt
+2319 8020 lt
+2622 8016 lt
+2926 8005 lt
+3230 7989 lt
+3534 7969 lt
+3838 7946 lt
+4141 7924 lt
+4445 7902 lt
+4749 7881 lt
+5053 7862 lt
+5357 7846 lt
+5660 7833 lt
+5964 7823 lt
+6268 7814 lt
+6572 7809 lt
+6876 7805 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7906 mt
+1103 8081 lt
+1407 8018 lt
+1711 8006 lt
+2015 8020 lt
+2319 8026 lt
+2622 8021 lt
+2926 8009 lt
+3230 7992 lt
+3534 7971 lt
+3838 7948 lt
+4141 7924 lt
+4445 7902 lt
+4749 7881 lt
+5053 7862 lt
+5357 7846 lt
+5660 7832 lt
+5964 7821 lt
+6268 7813 lt
+6572 7808 lt
+6876 7804 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7906 mt
+1103 8086 lt
+1407 8025 lt
+1711 8013 lt
+2015 8027 lt
+2319 8032 lt
+2622 8027 lt
+2926 8014 lt
+3230 7995 lt
+3534 7973 lt
+3838 7949 lt
+4141 7925 lt
+4445 7902 lt
+4749 7880 lt
+5053 7861 lt
+5357 7845 lt
+5660 7831 lt
+5964 7820 lt
+6268 7812 lt
+6572 7807 lt
+6876 7803 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7907 mt
+1103 8091 lt
+1407 8032 lt
+1711 8020 lt
+2015 8034 lt
+2319 8038 lt
+2622 8032 lt
+2926 8018 lt
+3230 7998 lt
+3534 7975 lt
+3838 7950 lt
+4141 7925 lt
+4445 7902 lt
+4749 7880 lt
+5053 7860 lt
+5357 7844 lt
+5660 7830 lt
+5964 7819 lt
+6268 7811 lt
+6572 7806 lt
+6876 7802 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7908 mt
+1103 8096 lt
+1407 8039 lt
+1711 8028 lt
+2015 8041 lt
+2319 8045 lt
+2622 8037 lt
+2926 8022 lt
+3230 8001 lt
+3534 7977 lt
+3838 7952 lt
+4141 7926 lt
+4445 7902 lt
+4749 7879 lt
+5053 7859 lt
+5357 7842 lt
+5660 7829 lt
+5964 7818 lt
+6268 7810 lt
+6572 7805 lt
+6876 7801 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7908 mt
+1103 8101 lt
+1407 8046 lt
+1711 8035 lt
+2015 8048 lt
+2319 8051 lt
+2622 8043 lt
+2926 8026 lt
+3230 8005 lt
+3534 7980 lt
+3838 7953 lt
+4141 7927 lt
+4445 7901 lt
+4749 7879 lt
+5053 7858 lt
+5357 7841 lt
+5660 7828 lt
+5964 7817 lt
+6268 7809 lt
+6572 7804 lt
+6876 7800 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7909 mt
+1103 8106 lt
+1407 8054 lt
+1711 8043 lt
+2015 8056 lt
+2319 8058 lt
+2622 8048 lt
+2926 8031 lt
+3230 8008 lt
+3534 7982 lt
+3838 7954 lt
+4141 7927 lt
+4445 7901 lt
+4749 7878 lt
+5053 7858 lt
+5357 7840 lt
+5660 7826 lt
+5964 7816 lt
+6268 7808 lt
+6572 7803 lt
+6876 7800 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7909 mt
+1103 8111 lt
+1407 8061 lt
+1711 8051 lt
+2015 8063 lt
+2319 8065 lt
+2622 8054 lt
+2926 8036 lt
+3230 8012 lt
+3534 7984 lt
+3838 7956 lt
+4141 7928 lt
+4445 7901 lt
+4749 7877 lt
+5053 7857 lt
+5357 7839 lt
+5660 7825 lt
+5964 7814 lt
+6268 7807 lt
+6572 7802 lt
+6876 7799 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7910 mt
+1103 8116 lt
+1407 8069 lt
+1711 8059 lt
+2015 8071 lt
+2319 8071 lt
+2622 8060 lt
+2926 8040 lt
+3230 8015 lt
+3534 7987 lt
+3838 7957 lt
+4141 7928 lt
+4445 7901 lt
+4749 7877 lt
+5053 7856 lt
+5357 7838 lt
+5660 7824 lt
+5964 7813 lt
+6268 7805 lt
+6572 7800 lt
+6876 7798 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7911 mt
+1103 8121 lt
+1407 8077 lt
+1711 8067 lt
+2015 8079 lt
+2319 8078 lt
+2622 8066 lt
+2926 8045 lt
+3230 8018 lt
+3534 7989 lt
+3838 7959 lt
+4141 7929 lt
+4445 7901 lt
+4749 7876 lt
+5053 7855 lt
+5357 7837 lt
+5660 7823 lt
+5964 7812 lt
+6268 7804 lt
+6572 7799 lt
+6876 7797 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7911 mt
+1103 8127 lt
+1407 8084 lt
+1711 8075 lt
+2015 8086 lt
+2319 8085 lt
+2622 8072 lt
+2926 8050 lt
+3230 8022 lt
+3534 7991 lt
+3838 7960 lt
+4141 7929 lt
+4445 7901 lt
+4749 7876 lt
+5053 7854 lt
+5357 7836 lt
+5660 7821 lt
+5964 7811 lt
+6268 7803 lt
+6572 7798 lt
+6876 7796 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7912 mt
+1103 8132 lt
+1407 8092 lt
+1711 8084 lt
+2015 8094 lt
+2319 8093 lt
+2622 8078 lt
+2926 8054 lt
+3230 8026 lt
+3534 7994 lt
+3838 7961 lt
+4141 7930 lt
+4445 7901 lt
+4749 7875 lt
+5053 7853 lt
+5357 7834 lt
+5660 7820 lt
+5964 7809 lt
+6268 7802 lt
+6572 7797 lt
+6876 7795 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7912 mt
+1103 8138 lt
+1407 8101 lt
+1711 8093 lt
+2015 8103 lt
+2319 8100 lt
+2622 8084 lt
+2926 8059 lt
+3230 8029 lt
+3534 7996 lt
+3838 7963 lt
+4141 7930 lt
+4445 7901 lt
+4749 7874 lt
+5053 7852 lt
+5357 7833 lt
+5660 7819 lt
+5964 7808 lt
+6268 7800 lt
+6572 7796 lt
+6876 7793 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7913 mt
+1103 8143 lt
+1407 8109 lt
+1711 8101 lt
+2015 8111 lt
+2319 8107 lt
+2622 8090 lt
+2926 8064 lt
+3230 8033 lt
+3534 7999 lt
+3838 7964 lt
+4141 7931 lt
+4445 7900 lt
+4749 7874 lt
+5053 7851 lt
+5357 7832 lt
+5660 7817 lt
+5964 7806 lt
+6268 7799 lt
+6572 7794 lt
+6876 7792 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7914 mt
+1103 8149 lt
+1407 8117 lt
+1711 8110 lt
+2015 8120 lt
+2319 8115 lt
+2622 8097 lt
+2926 8069 lt
+3230 8037 lt
+3534 8001 lt
+3838 7966 lt
+4141 7931 lt
+4445 7900 lt
+4749 7873 lt
+5053 7849 lt
+5357 7830 lt
+5660 7816 lt
+5964 7805 lt
+6268 7798 lt
+6572 7793 lt
+6876 7791 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7914 mt
+1103 8154 lt
+1407 8126 lt
+1711 8120 lt
+2015 8128 lt
+2319 8123 lt
+2622 8103 lt
+2926 8074 lt
+3230 8040 lt
+3534 8004 lt
+3838 7967 lt
+4141 7932 lt
+4445 7900 lt
+4749 7872 lt
+5053 7848 lt
+5357 7829 lt
+5660 7814 lt
+5964 7803 lt
+6268 7796 lt
+6572 7792 lt
+6876 7790 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7915 mt
+1103 8160 lt
+1407 8135 lt
+1711 8129 lt
+2015 8137 lt
+2319 8130 lt
+2622 8110 lt
+2926 8080 lt
+3230 8044 lt
+3534 8006 lt
+3838 7968 lt
+4141 7932 lt
+4445 7900 lt
+4749 7871 lt
+5053 7847 lt
+5357 7828 lt
+5660 7813 lt
+5964 7802 lt
+6268 7795 lt
+6572 7791 lt
+6876 7789 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7915 mt
+1103 8166 lt
+1407 8144 lt
+1711 8138 lt
+2015 8146 lt
+2319 8138 lt
+2622 8116 lt
+2926 8085 lt
+3230 8048 lt
+3534 8009 lt
+3838 7970 lt
+4141 7933 lt
+4445 7899 lt
+4749 7870 lt
+5053 7846 lt
+5357 7826 lt
+5660 7811 lt
+5964 7800 lt
+6268 7793 lt
+6572 7789 lt
+6876 7788 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7916 mt
+1103 8172 lt
+1407 8153 lt
+1711 8148 lt
+2015 8155 lt
+2319 8146 lt
+2622 8123 lt
+2926 8090 lt
+3230 8052 lt
+3534 8011 lt
+3838 7971 lt
+4141 7933 lt
+4445 7899 lt
+4749 7869 lt
+5053 7844 lt
+5357 7824 lt
+5660 7809 lt
+5964 7799 lt
+6268 7792 lt
+6572 7788 lt
+6876 7787 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7916 mt
+1103 8177 lt
+1407 8162 lt
+1711 8158 lt
+2015 8164 lt
+2319 8155 lt
+2622 8130 lt
+2926 8095 lt
+3230 8056 lt
+3534 8014 lt
+3838 7972 lt
+4141 7933 lt
+4445 7898 lt
+4749 7868 lt
+5053 7843 lt
+5357 7823 lt
+5660 7808 lt
+5964 7797 lt
+6268 7790 lt
+6572 7786 lt
+6876 7785 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7917 mt
+1103 8183 lt
+1407 8171 lt
+1711 8168 lt
+2015 8174 lt
+2319 8163 lt
+2622 8137 lt
+2926 8101 lt
+3230 8059 lt
+3534 8016 lt
+3838 7974 lt
+4141 7934 lt
+4445 7898 lt
+4749 7867 lt
+5053 7841 lt
+5357 7821 lt
+5660 7806 lt
+5964 7795 lt
+6268 7788 lt
+6572 7785 lt
+6876 7784 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7917 mt
+1103 8189 lt
+1407 8181 lt
+1711 8178 lt
+2015 8183 lt
+2319 8171 lt
+2622 8144 lt
+2926 8106 lt
+3230 8063 lt
+3534 8019 lt
+3838 7975 lt
+4141 7934 lt
+4445 7897 lt
+4749 7866 lt
+5053 7840 lt
+5357 7819 lt
+5660 7804 lt
+5964 7793 lt
+6268 7787 lt
+6572 7783 lt
+6876 7783 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 7917 mt
+1103 8195 lt
+1407 8190 lt
+1711 8188 lt
+2015 8193 lt
+2319 8180 lt
+2622 8150 lt
+2926 8111 lt
+3230 8067 lt
+3534 8021 lt
+3838 7976 lt
+4141 7934 lt
+4445 7897 lt
+4749 7865 lt
+5053 7838 lt
+5357 7817 lt
+5660 7802 lt
+5964 7791 lt
+6268 7785 lt
+6572 7782 lt
+6876 7782 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+800 7817 mt
+1103 7817 lt
+1407 7821 lt
+1711 7822 lt
+2015 7852 lt
+2319 7865 lt
+2622 7867 lt
+2926 7862 lt
+3230 7850 lt
+3534 7832 lt
+3838 7813 lt
+4141 7793 lt
+4445 7783 lt
+4749 7768 lt
+5053 7756 lt
+5357 7747 lt
+5660 7742 lt
+5964 7739 lt
+6268 7738 lt
+6572 7738 lt
+6876 7741 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+800 8598 mt
+1103 8500 lt
+1407 8346 lt
+1711 8324 lt
+2015 8318 lt
+2319 8303 lt
+2622 8272 lt
+2926 8232 lt
+3230 8189 lt
+3534 8144 lt
+3838 8099 lt
+4141 8055 lt
+4445 8023 lt
+4749 7987 lt
+5053 7954 lt
+5357 7926 lt
+5660 7903 lt
+5964 7883 lt
+6268 7868 lt
+6572 7857 lt
+6876 7850 lt
+EndPath
+3352 9157 Mto
+203 /F0 Font
+tb0
+3352 9157 Mto
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+67 67 Rt
+406 0 Rlt
+67 -67 Rt
+1 SetColor
+(67)T
+(% error bands )T
+tb1
+3892 8954 Mto
+tb2
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+3352 9157 Mto
+tb3
+0 -67 Rt
+3352 9360 Boxto
+330 /F0 Font
+10532 9157 Mto
+203 /F0 Font
+tb0
+10532 9157 Mto
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+67 67 Rt
+406 0 Rlt
+67 -67 Rt
+1 SetColor
+(67)T
+(% error bands )T
+tb1
+11072 8954 Mto
+tb2
+0 SetColor
+10532 9157 Mto
+tb3
+0 -67 Rt
+10532 9360 FillBoxto
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+300 /F0 Font
+8587 7660 Mto
+8587 7780 Lto
+8518 7360 Mto
+(2) T
+9195 7660 Mto
+9195 7780 Lto
+9126 7360 Mto
+(4) T
+9802 7660 Mto
+9802 7780 Lto
+9733 7360 Mto
+(6) T
+10410 7660 Mto
+10410 7780 Lto
+10341 7360 Mto
+(8) T
+11018 7660 Mto
+11018 7780 Lto
+10879 7360 Mto
+(10)T
+11625 7660 Mto
+11625 7780 Lto
+11486 7360 Mto
+(12)T
+12233 7660 Mto
+12233 7780 Lto
+12094 7360 Mto
+(14)T
+12840 7660 Mto
+12840 7780 Lto
+12701 7360 Mto
+(16)T
+13448 7660 Mto
+13448 7780 Lto
+13309 7360 Mto
+(18)T
+14056 7660 Mto
+14056 7780 Lto
+13917 7360 Mto
+(20)T
+7980 7660 Mto
+14056 7660 Lto
+14 SetColor
+/Ltp { Linetype14 } def /Lwd { Linewidth14 } def Slt
+7980 7817 Mto
+14056 7817 Lto
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+/Rot 360 def
+7980 7817 Mto
+8040 7817 Lto
+7980 8083 Mto
+8040 8083 Lto
+7980 8349 Mto
+8040 8349 Lto
+7980 8615 Mto
+8040 8615 Lto
+7980 8881 Mto
+8040 8881 Lto
+7980 9147 Mto
+8040 9147 Lto
+7980 7817 Mto
+8100 7817 Lto
+7930 7717 Mto
+(0.0)T
+7980 8349 Mto
+8100 8349 Lto
+7930 8249 Mto
+(0.1)T
+7980 8881 Mto
+8100 8881 Lto
+7930 8781 Mto
+(0.2)T
+7980 7660 Mto
+7980 9360 Lto
+/Rot 0 def
+1 SetColor
+8280 9420 Mto
+(IRF to monetary policy shock in 2010q1)T
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7817 mt
+8283 8705 lt
+8587 8255 lt
+8891 8359 lt
+9195 8342 lt
+9499 8280 lt
+9802 8193 lt
+10106 8110 lt
+10410 8034 lt
+10714 7969 lt
+11018 7917 lt
+11321 7879 lt
+11625 7852 lt
+11929 7835 lt
+12233 7827 lt
+12537 7824 lt
+12840 7824 lt
+13144 7827 lt
+13448 7830 lt
+13752 7834 lt
+14056 7837 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7819 mt
+8283 8703 lt
+8587 8257 lt
+8891 8359 lt
+9195 8342 lt
+9499 8279 lt
+9802 8192 lt
+10106 8108 lt
+10410 8032 lt
+10714 7967 lt
+11018 7915 lt
+11321 7876 lt
+11625 7850 lt
+11929 7833 lt
+12233 7825 lt
+12537 7822 lt
+12840 7823 lt
+13144 7825 lt
+13448 7829 lt
+13752 7833 lt
+14056 7836 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7820 mt
+8283 8702 lt
+8587 8259 lt
+8891 8360 lt
+9195 8341 lt
+9499 8278 lt
+9802 8190 lt
+10106 8106 lt
+10410 8029 lt
+10714 7964 lt
+11018 7912 lt
+11321 7874 lt
+11625 7848 lt
+11929 7831 lt
+12233 7823 lt
+12537 7820 lt
+12840 7821 lt
+13144 7824 lt
+13448 7828 lt
+13752 7831 lt
+14056 7835 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7821 mt
+8283 8700 lt
+8587 8262 lt
+8891 8361 lt
+9195 8341 lt
+9499 8277 lt
+9802 8188 lt
+10106 8104 lt
+10410 8027 lt
+10714 7961 lt
+11018 7910 lt
+11321 7871 lt
+11625 7845 lt
+11929 7829 lt
+12233 7821 lt
+12537 7818 lt
+12840 7819 lt
+13144 7822 lt
+13448 7826 lt
+13752 7830 lt
+14056 7833 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7823 mt
+8283 8698 lt
+8587 8264 lt
+8891 8361 lt
+9195 8341 lt
+9499 8276 lt
+9802 8187 lt
+10106 8102 lt
+10410 8024 lt
+10714 7959 lt
+11018 7907 lt
+11321 7869 lt
+11625 7843 lt
+11929 7826 lt
+12233 7819 lt
+12537 7816 lt
+12840 7817 lt
+13144 7821 lt
+13448 7825 lt
+13752 7829 lt
+14056 7832 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7825 mt
+8283 8696 lt
+8587 8266 lt
+8891 8362 lt
+9195 8340 lt
+9499 8275 lt
+9802 8185 lt
+10106 8099 lt
+10410 8022 lt
+10714 7956 lt
+11018 7904 lt
+11321 7866 lt
+11625 7840 lt
+11929 7824 lt
+12233 7816 lt
+12537 7814 lt
+12840 7815 lt
+13144 7819 lt
+13448 7823 lt
+13752 7827 lt
+14056 7831 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7826 mt
+8283 8693 lt
+8587 8269 lt
+8891 8362 lt
+9195 8340 lt
+9499 8273 lt
+9802 8183 lt
+10106 8097 lt
+10410 8019 lt
+10714 7953 lt
+11018 7901 lt
+11321 7863 lt
+11625 7837 lt
+11929 7821 lt
+12233 7814 lt
+12537 7812 lt
+12840 7814 lt
+13144 7817 lt
+13448 7821 lt
+13752 7826 lt
+14056 7830 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7828 mt
+8283 8691 lt
+8587 8271 lt
+8891 8363 lt
+9195 8339 lt
+9499 8272 lt
+9802 8181 lt
+10106 8094 lt
+10410 8016 lt
+10714 7950 lt
+11018 7898 lt
+11321 7860 lt
+11625 7835 lt
+11929 7819 lt
+12233 7812 lt
+12537 7810 lt
+12840 7812 lt
+13144 7815 lt
+13448 7820 lt
+13752 7824 lt
+14056 7828 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7829 mt
+8283 8688 lt
+8587 8273 lt
+8891 8363 lt
+9195 8338 lt
+9499 8270 lt
+9802 8179 lt
+10106 8092 lt
+10410 8013 lt
+10714 7947 lt
+11018 7895 lt
+11321 7857 lt
+11625 7832 lt
+11929 7816 lt
+12233 7809 lt
+12537 7808 lt
+12840 7810 lt
+13144 7813 lt
+13448 7818 lt
+13752 7823 lt
+14056 7827 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7831 mt
+8283 8685 lt
+8587 8276 lt
+8891 8364 lt
+9195 8337 lt
+9499 8269 lt
+9802 8176 lt
+10106 8089 lt
+10410 8010 lt
+10714 7944 lt
+11018 7892 lt
+11321 7854 lt
+11625 7829 lt
+11929 7814 lt
+12233 7807 lt
+12537 7805 lt
+12840 7808 lt
+13144 7812 lt
+13448 7816 lt
+13752 7821 lt
+14056 7825 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7833 mt
+8283 8682 lt
+8587 8278 lt
+8891 8364 lt
+9195 8337 lt
+9499 8267 lt
+9802 8174 lt
+10106 8086 lt
+10410 8007 lt
+10714 7941 lt
+11018 7889 lt
+11321 7851 lt
+11625 7826 lt
+11929 7811 lt
+12233 7804 lt
+12537 7803 lt
+12840 7805 lt
+13144 7810 lt
+13448 7815 lt
+13752 7820 lt
+14056 7824 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7834 mt
+8283 8679 lt
+8587 8280 lt
+8891 8364 lt
+9195 8336 lt
+9499 8265 lt
+9802 8172 lt
+10106 8083 lt
+10410 8004 lt
+10714 7938 lt
+11018 7886 lt
+11321 7848 lt
+11625 7823 lt
+11929 7808 lt
+12233 7802 lt
+12537 7801 lt
+12840 7803 lt
+13144 7808 lt
+13448 7813 lt
+13752 7818 lt
+14056 7822 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7836 mt
+8283 8676 lt
+8587 8282 lt
+8891 8364 lt
+9195 8334 lt
+9499 8263 lt
+9802 8169 lt
+10106 8080 lt
+10410 8001 lt
+10714 7934 lt
+11018 7882 lt
+11321 7845 lt
+11625 7820 lt
+11929 7806 lt
+12233 7799 lt
+12537 7798 lt
+12840 7801 lt
+13144 7806 lt
+13448 7811 lt
+13752 7816 lt
+14056 7821 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7838 mt
+8283 8672 lt
+8587 8284 lt
+8891 8364 lt
+9195 8333 lt
+9499 8261 lt
+9802 8166 lt
+10106 8077 lt
+10410 7997 lt
+10714 7931 lt
+11018 7879 lt
+11321 7841 lt
+11625 7817 lt
+11929 7803 lt
+12233 7797 lt
+12537 7796 lt
+12840 7799 lt
+13144 7804 lt
+13448 7809 lt
+13752 7815 lt
+14056 7819 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7840 mt
+8283 8668 lt
+8587 8287 lt
+8891 8364 lt
+9195 8332 lt
+9499 8259 lt
+9802 8163 lt
+10106 8074 lt
+10410 7994 lt
+10714 7927 lt
+11018 7875 lt
+11321 7838 lt
+11625 7814 lt
+11929 7800 lt
+12233 7794 lt
+12537 7794 lt
+12840 7797 lt
+13144 7802 lt
+13448 7807 lt
+13752 7813 lt
+14056 7818 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7842 mt
+8283 8664 lt
+8587 8289 lt
+8891 8364 lt
+9195 8330 lt
+9499 8256 lt
+9802 8160 lt
+10106 8071 lt
+10410 7990 lt
+10714 7923 lt
+11018 7872 lt
+11321 7835 lt
+11625 7810 lt
+11929 7797 lt
+12233 7791 lt
+12537 7791 lt
+12840 7794 lt
+13144 7800 lt
+13448 7805 lt
+13752 7811 lt
+14056 7816 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7844 mt
+8283 8659 lt
+8587 8291 lt
+8891 8363 lt
+9195 8329 lt
+9499 8254 lt
+9802 8157 lt
+10106 8067 lt
+10410 7986 lt
+10714 7919 lt
+11018 7868 lt
+11321 7831 lt
+11625 7807 lt
+11929 7794 lt
+12233 7788 lt
+12537 7788 lt
+12840 7792 lt
+13144 7797 lt
+13448 7803 lt
+13752 7809 lt
+14056 7814 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7846 mt
+8283 8654 lt
+8587 8293 lt
+8891 8363 lt
+9195 8327 lt
+9499 8251 lt
+9802 8154 lt
+10106 8063 lt
+10410 7982 lt
+10714 7915 lt
+11018 7864 lt
+11321 7827 lt
+11625 7803 lt
+11929 7790 lt
+12233 7785 lt
+12537 7786 lt
+12840 7789 lt
+13144 7795 lt
+13448 7801 lt
+13752 7807 lt
+14056 7812 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7848 mt
+8283 8649 lt
+8587 8295 lt
+8891 8362 lt
+9195 8325 lt
+9499 8248 lt
+9802 8150 lt
+10106 8059 lt
+10410 7978 lt
+10714 7911 lt
+11018 7860 lt
+11321 7823 lt
+11625 7800 lt
+11929 7787 lt
+12233 7782 lt
+12537 7783 lt
+12840 7787 lt
+13144 7793 lt
+13448 7799 lt
+13752 7805 lt
+14056 7811 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7850 mt
+8283 8643 lt
+8587 8296 lt
+8891 8361 lt
+9195 8322 lt
+9499 8245 lt
+9802 8147 lt
+10106 8055 lt
+10410 7974 lt
+10714 7907 lt
+11018 7856 lt
+11321 7819 lt
+11625 7796 lt
+11929 7784 lt
+12233 7779 lt
+12537 7780 lt
+12840 7784 lt
+13144 7790 lt
+13448 7797 lt
+13752 7803 lt
+14056 7809 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7852 mt
+8283 8637 lt
+8587 8298 lt
+8891 8360 lt
+9195 8320 lt
+9499 8241 lt
+9802 8143 lt
+10106 8051 lt
+10410 7970 lt
+10714 7903 lt
+11018 7851 lt
+11321 7815 lt
+11625 7792 lt
+11929 7780 lt
+12233 7776 lt
+12537 7777 lt
+12840 7782 lt
+13144 7788 lt
+13448 7795 lt
+13752 7801 lt
+14056 7807 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7854 mt
+8283 8630 lt
+8587 8300 lt
+8891 8358 lt
+9195 8317 lt
+9499 8238 lt
+9802 8138 lt
+10106 8046 lt
+10410 7965 lt
+10714 7898 lt
+11018 7847 lt
+11321 7811 lt
+11625 7789 lt
+11929 7777 lt
+12233 7773 lt
+12537 7774 lt
+12840 7779 lt
+13144 7786 lt
+13448 7793 lt
+13752 7799 lt
+14056 7805 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7857 mt
+8283 8623 lt
+8587 8301 lt
+8891 8357 lt
+9195 8314 lt
+9499 8233 lt
+9802 8134 lt
+10106 8042 lt
+10410 7960 lt
+10714 7893 lt
+11018 7842 lt
+11321 7807 lt
+11625 7784 lt
+11929 7773 lt
+12233 7769 lt
+12537 7771 lt
+12840 7776 lt
+13144 7783 lt
+13448 7790 lt
+13752 7797 lt
+14056 7803 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7859 mt
+8283 8615 lt
+8587 8302 lt
+8891 8355 lt
+9195 8310 lt
+9499 8229 lt
+9802 8129 lt
+10106 8036 lt
+10410 7955 lt
+10714 7888 lt
+11018 7837 lt
+11321 7802 lt
+11625 7780 lt
+11929 7770 lt
+12233 7766 lt
+12537 7768 lt
+12840 7773 lt
+13144 7780 lt
+13448 7788 lt
+13752 7795 lt
+14056 7801 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7861 mt
+8283 8606 lt
+8587 8303 lt
+8891 8352 lt
+9195 8306 lt
+9499 8224 lt
+9802 8124 lt
+10106 8031 lt
+10410 7949 lt
+10714 7883 lt
+11018 7832 lt
+11321 7798 lt
+11625 7776 lt
+11929 7766 lt
+12233 7762 lt
+12537 7765 lt
+12840 7770 lt
+13144 7778 lt
+13448 7785 lt
+13752 7792 lt
+14056 7799 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7864 mt
+8283 8596 lt
+8587 8303 lt
+8891 8349 lt
+9195 8301 lt
+9499 8219 lt
+9802 8118 lt
+10106 8025 lt
+10410 7944 lt
+10714 7877 lt
+11018 7827 lt
+11321 7793 lt
+11625 7772 lt
+11929 7762 lt
+12233 7758 lt
+12537 7761 lt
+12840 7767 lt
+13144 7775 lt
+13448 7783 lt
+13752 7790 lt
+14056 7796 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 7866 mt
+8283 8585 lt
+8587 8304 lt
+8891 8345 lt
+9195 8296 lt
+9499 8213 lt
+9802 8112 lt
+10106 8019 lt
+10410 7938 lt
+10714 7872 lt
+11018 7822 lt
+11321 7788 lt
+11625 7767 lt
+11929 7758 lt
+12233 7755 lt
+12537 7758 lt
+12840 7764 lt
+13144 7772 lt
+13448 7780 lt
+13752 7788 lt
+14056 7794 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+7980 7817 mt
+8283 8165 lt
+8587 7945 lt
+8891 8135 lt
+9195 8119 lt
+9499 8065 lt
+9802 7977 lt
+10106 7900 lt
+10410 7828 lt
+10714 7769 lt
+11018 7727 lt
+11321 7697 lt
+11625 7682 lt
+11929 7674 lt
+12233 7676 lt
+12537 7681 lt
+12840 7690 lt
+13144 7702 lt
+13448 7713 lt
+13752 7725 lt
+14056 7736 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+7980 8150 mt
+8283 9219 lt
+8587 8559 lt
+8891 8592 lt
+9195 8534 lt
+9499 8439 lt
+9802 8341 lt
+10106 8240 lt
+10410 8158 lt
+10714 8086 lt
+11018 8029 lt
+11321 7985 lt
+11625 7953 lt
+11929 7932 lt
+12233 7918 lt
+12537 7911 lt
+12840 7909 lt
+13144 7909 lt
+13448 7909 lt
+13752 7909 lt
+14056 7909 lt
+EndPath
+10532 9157 Mto
+203 /F0 Font
+tb0
+10532 9157 Mto
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+67 67 Rt
+406 0 Rlt
+67 -67 Rt
+1 SetColor
+(67)T
+(% error bands )T
+tb1
+11072 8954 Mto
+tb2
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+10532 9157 Mto
+tb3
+0 -67 Rt
+10532 9360 Boxto
+330 /F0 Font
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+300 /F0 Font
+1407 5320 Mto
+1407 5440 Lto
+1338 5020 Mto
+(2) T
+2015 5320 Mto
+2015 5440 Lto
+1946 5020 Mto
+(4) T
+2622 5320 Mto
+2622 5440 Lto
+2553 5020 Mto
+(6) T
+3230 5320 Mto
+3230 5440 Lto
+3161 5020 Mto
+(8) T
+3838 5320 Mto
+3838 5440 Lto
+3699 5020 Mto
+(10)T
+4445 5320 Mto
+4445 5440 Lto
+4306 5020 Mto
+(12)T
+5053 5320 Mto
+5053 5440 Lto
+4914 5020 Mto
+(14)T
+5660 5320 Mto
+5660 5440 Lto
+5521 5020 Mto
+(16)T
+6268 5320 Mto
+6268 5440 Lto
+6129 5020 Mto
+(18)T
+6876 5320 Mto
+6876 5440 Lto
+6737 5020 Mto
+(20)T
+800 5320 Mto
+6876 5320 Lto
+14 SetColor
+/Ltp { Linetype14 } def /Lwd { Linewidth14 } def Slt
+800 5594 Mto
+6876 5594 Lto
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+/Rot 90 def
+800 5594 Mto
+860 5594 Lto
+800 5969 Mto
+860 5969 Lto
+800 6344 Mto
+860 6344 Lto
+800 6718 Mto
+860 6718 Lto
+800 5594 Mto
+920 5594 Lto
+700 5525 Mto
+(0) T
+800 6344 Mto
+920 6344 Lto
+700 6169 Mto
+(0.2)T
+800 5320 Mto
+800 7020 Lto
+/Rot 0 def
+360 /F0 Font
+1 SetColor
+/Rot 90 def
+360 5369 Mto
+(Output gap)T
+/Rot 0 def
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6039 mt
+1103 6153 lt
+1407 6164 lt
+1711 6138 lt
+2015 6102 lt
+2319 6059 lt
+2622 6013 lt
+2926 5964 lt
+3230 5914 lt
+3534 5863 lt
+3838 5815 lt
+4141 5769 lt
+4445 5728 lt
+4749 5691 lt
+5053 5660 lt
+5357 5634 lt
+5660 5613 lt
+5964 5597 lt
+6268 5585 lt
+6572 5577 lt
+6876 5572 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6042 mt
+1103 6158 lt
+1407 6171 lt
+1711 6146 lt
+2015 6109 lt
+2319 6066 lt
+2622 6019 lt
+2926 5968 lt
+3230 5916 lt
+3534 5865 lt
+3838 5815 lt
+4141 5769 lt
+4445 5727 lt
+4749 5690 lt
+5053 5658 lt
+5357 5632 lt
+5660 5611 lt
+5964 5595 lt
+6268 5583 lt
+6572 5575 lt
+6876 5571 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6045 mt
+1103 6164 lt
+1407 6179 lt
+1711 6154 lt
+2015 6117 lt
+2319 6073 lt
+2622 6024 lt
+2926 5972 lt
+3230 5919 lt
+3534 5866 lt
+3838 5815 lt
+4141 5768 lt
+4445 5725 lt
+4749 5688 lt
+5053 5656 lt
+5357 5630 lt
+5660 5609 lt
+5964 5593 lt
+6268 5581 lt
+6572 5574 lt
+6876 5569 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6048 mt
+1103 6170 lt
+1407 6186 lt
+1711 6162 lt
+2015 6124 lt
+2319 6079 lt
+2622 6029 lt
+2926 5976 lt
+3230 5921 lt
+3534 5867 lt
+3838 5815 lt
+4141 5767 lt
+4445 5724 lt
+4749 5686 lt
+5053 5654 lt
+5357 5627 lt
+5660 5607 lt
+5964 5591 lt
+6268 5579 lt
+6572 5572 lt
+6876 5568 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6051 mt
+1103 6176 lt
+1407 6194 lt
+1711 6171 lt
+2015 6132 lt
+2319 6086 lt
+2622 6035 lt
+2926 5980 lt
+3230 5924 lt
+3534 5868 lt
+3838 5816 lt
+4141 5767 lt
+4445 5723 lt
+4749 5684 lt
+5053 5652 lt
+5357 5625 lt
+5660 5604 lt
+5964 5589 lt
+6268 5578 lt
+6572 5571 lt
+6876 5567 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6054 mt
+1103 6182 lt
+1407 6202 lt
+1711 6179 lt
+2015 6140 lt
+2319 6093 lt
+2622 6040 lt
+2926 5984 lt
+3230 5926 lt
+3534 5870 lt
+3838 5816 lt
+4141 5766 lt
+4445 5721 lt
+4749 5682 lt
+5053 5650 lt
+5357 5623 lt
+5660 5602 lt
+5964 5587 lt
+6268 5576 lt
+6572 5569 lt
+6876 5565 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6057 mt
+1103 6188 lt
+1407 6210 lt
+1711 6187 lt
+2015 6148 lt
+2319 6100 lt
+2622 6046 lt
+2926 5988 lt
+3230 5929 lt
+3534 5871 lt
+3838 5816 lt
+4141 5765 lt
+4445 5720 lt
+4749 5681 lt
+5053 5648 lt
+5357 5621 lt
+5660 5600 lt
+5964 5585 lt
+6268 5574 lt
+6572 5567 lt
+6876 5564 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6060 mt
+1103 6194 lt
+1407 6218 lt
+1711 6196 lt
+2015 6156 lt
+2319 6107 lt
+2622 6052 lt
+2926 5992 lt
+3230 5932 lt
+3534 5872 lt
+3838 5816 lt
+4141 5764 lt
+4445 5718 lt
+4749 5679 lt
+5053 5645 lt
+5357 5618 lt
+5660 5598 lt
+5964 5582 lt
+6268 5572 lt
+6572 5566 lt
+6876 5563 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6064 mt
+1103 6201 lt
+1407 6226 lt
+1711 6205 lt
+2015 6165 lt
+2319 6114 lt
+2622 6057 lt
+2926 5996 lt
+3230 5934 lt
+3534 5874 lt
+3838 5816 lt
+4141 5763 lt
+4445 5717 lt
+4749 5677 lt
+5053 5643 lt
+5357 5616 lt
+5660 5595 lt
+5964 5580 lt
+6268 5570 lt
+6572 5564 lt
+6876 5561 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6067 mt
+1103 6207 lt
+1407 6234 lt
+1711 6213 lt
+2015 6173 lt
+2319 6122 lt
+2622 6063 lt
+2926 6001 lt
+3230 5937 lt
+3534 5875 lt
+3838 5816 lt
+4141 5763 lt
+4445 5715 lt
+4749 5674 lt
+5053 5641 lt
+5357 5614 lt
+5660 5593 lt
+5964 5578 lt
+6268 5568 lt
+6572 5562 lt
+6876 5560 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6070 mt
+1103 6213 lt
+1407 6243 lt
+1711 6222 lt
+2015 6181 lt
+2319 6129 lt
+2622 6069 lt
+2926 6005 lt
+3230 5940 lt
+3534 5876 lt
+3838 5816 lt
+4141 5762 lt
+4445 5713 lt
+4749 5672 lt
+5053 5638 lt
+5357 5611 lt
+5660 5590 lt
+5964 5576 lt
+6268 5566 lt
+6572 5560 lt
+6876 5558 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6073 mt
+1103 6220 lt
+1407 6251 lt
+1711 6231 lt
+2015 6190 lt
+2319 6136 lt
+2622 6075 lt
+2926 6009 lt
+3230 5942 lt
+3534 5877 lt
+3838 5816 lt
+4141 5761 lt
+4445 5712 lt
+4749 5670 lt
+5053 5636 lt
+5357 5608 lt
+5660 5588 lt
+5964 5573 lt
+6268 5564 lt
+6572 5558 lt
+6876 5557 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6076 mt
+1103 6226 lt
+1407 6259 lt
+1711 6241 lt
+2015 6199 lt
+2319 6144 lt
+2622 6081 lt
+2926 6013 lt
+3230 5945 lt
+3534 5879 lt
+3838 5816 lt
+4141 5760 lt
+4445 5710 lt
+4749 5668 lt
+5053 5633 lt
+5357 5606 lt
+5660 5585 lt
+5964 5571 lt
+6268 5562 lt
+6572 5557 lt
+6876 5555 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6080 mt
+1103 6233 lt
+1407 6268 lt
+1711 6250 lt
+2015 6207 lt
+2319 6151 lt
+2622 6087 lt
+2926 6018 lt
+3230 5948 lt
+3534 5880 lt
+3838 5816 lt
+4141 5758 lt
+4445 5708 lt
+4749 5665 lt
+5053 5631 lt
+5357 5603 lt
+5660 5583 lt
+5964 5568 lt
+6268 5559 lt
+6572 5555 lt
+6876 5554 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6083 mt
+1103 6239 lt
+1407 6277 lt
+1711 6259 lt
+2015 6216 lt
+2319 6159 lt
+2622 6093 lt
+2926 6022 lt
+3230 5950 lt
+3534 5881 lt
+3838 5816 lt
+4141 5757 lt
+4445 5706 lt
+4749 5663 lt
+5053 5628 lt
+5357 5600 lt
+5660 5580 lt
+5964 5566 lt
+6268 5557 lt
+6572 5553 lt
+6876 5552 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6086 mt
+1103 6246 lt
+1407 6285 lt
+1711 6269 lt
+2015 6225 lt
+2319 6167 lt
+2622 6099 lt
+2926 6027 lt
+3230 5953 lt
+3534 5882 lt
+3838 5816 lt
+4141 5756 lt
+4445 5704 lt
+4749 5661 lt
+5053 5625 lt
+5357 5597 lt
+5660 5577 lt
+5964 5563 lt
+6268 5555 lt
+6572 5551 lt
+6876 5550 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6089 mt
+1103 6252 lt
+1407 6294 lt
+1711 6278 lt
+2015 6234 lt
+2319 6175 lt
+2622 6105 lt
+2926 6031 lt
+3230 5956 lt
+3534 5883 lt
+3838 5815 lt
+4141 5755 lt
+4445 5702 lt
+4749 5658 lt
+5053 5622 lt
+5357 5595 lt
+5660 5574 lt
+5964 5561 lt
+6268 5552 lt
+6572 5549 lt
+6876 5549 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6092 mt
+1103 6259 lt
+1407 6303 lt
+1711 6288 lt
+2015 6243 lt
+2319 6183 lt
+2622 6112 lt
+2926 6035 lt
+3230 5958 lt
+3534 5884 lt
+3838 5815 lt
+4141 5753 lt
+4445 5700 lt
+4749 5655 lt
+5053 5619 lt
+5357 5591 lt
+5660 5571 lt
+5964 5558 lt
+6268 5550 lt
+6572 5547 lt
+6876 5547 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6095 mt
+1103 6265 lt
+1407 6312 lt
+1711 6297 lt
+2015 6253 lt
+2319 6191 lt
+2622 6118 lt
+2926 6040 lt
+3230 5961 lt
+3534 5885 lt
+3838 5815 lt
+4141 5752 lt
+4445 5698 lt
+4749 5652 lt
+5053 5616 lt
+5357 5588 lt
+5660 5568 lt
+5964 5555 lt
+6268 5548 lt
+6572 5545 lt
+6876 5545 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6098 mt
+1103 6272 lt
+1407 6321 lt
+1711 6307 lt
+2015 6262 lt
+2319 6199 lt
+2622 6124 lt
+2926 6044 lt
+3230 5964 lt
+3534 5886 lt
+3838 5814 lt
+4141 5750 lt
+4445 5695 lt
+4749 5650 lt
+5053 5613 lt
+5357 5585 lt
+5660 5565 lt
+5964 5552 lt
+6268 5545 lt
+6572 5542 lt
+6876 5543 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6101 mt
+1103 6278 lt
+1407 6330 lt
+1711 6317 lt
+2015 6271 lt
+2319 6207 lt
+2622 6130 lt
+2926 6049 lt
+3230 5966 lt
+3534 5887 lt
+3838 5814 lt
+4141 5749 lt
+4445 5693 lt
+4749 5647 lt
+5053 5610 lt
+5357 5582 lt
+5660 5562 lt
+5964 5549 lt
+6268 5542 lt
+6572 5540 lt
+6876 5542 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6103 mt
+1103 6285 lt
+1407 6339 lt
+1711 6327 lt
+2015 6281 lt
+2319 6215 lt
+2622 6137 lt
+2926 6053 lt
+3230 5969 lt
+3534 5888 lt
+3838 5813 lt
+4141 5747 lt
+4445 5690 lt
+4749 5644 lt
+5053 5606 lt
+5357 5579 lt
+5660 5559 lt
+5964 5546 lt
+6268 5540 lt
+6572 5538 lt
+6876 5540 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6106 mt
+1103 6291 lt
+1407 6347 lt
+1711 6336 lt
+2015 6290 lt
+2319 6223 lt
+2622 6143 lt
+2926 6057 lt
+3230 5971 lt
+3534 5888 lt
+3838 5812 lt
+4141 5745 lt
+4445 5687 lt
+4749 5640 lt
+5053 5603 lt
+5357 5575 lt
+5660 5556 lt
+5964 5543 lt
+6268 5537 lt
+6572 5536 lt
+6876 5538 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6108 mt
+1103 6297 lt
+1407 6356 lt
+1711 6346 lt
+2015 6299 lt
+2319 6231 lt
+2622 6149 lt
+2926 6061 lt
+3230 5973 lt
+3534 5889 lt
+3838 5811 lt
+4141 5743 lt
+4445 5685 lt
+4749 5637 lt
+5053 5599 lt
+5357 5571 lt
+5660 5552 lt
+5964 5540 lt
+6268 5534 lt
+6572 5533 lt
+6876 5536 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6110 mt
+1103 6303 lt
+1407 6365 lt
+1711 6356 lt
+2015 6308 lt
+2319 6238 lt
+2622 6155 lt
+2926 6065 lt
+3230 5975 lt
+3534 5889 lt
+3838 5810 lt
+4141 5741 lt
+4445 5682 lt
+4749 5633 lt
+5053 5596 lt
+5357 5568 lt
+5660 5549 lt
+5964 5537 lt
+6268 5531 lt
+6572 5531 lt
+6876 5534 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6112 mt
+1103 6309 lt
+1407 6373 lt
+1711 6365 lt
+2015 6317 lt
+2319 6246 lt
+2622 6161 lt
+2926 6069 lt
+3230 5977 lt
+3534 5889 lt
+3838 5809 lt
+4141 5738 lt
+4445 5678 lt
+4749 5630 lt
+5053 5592 lt
+5357 5564 lt
+5660 5545 lt
+5964 5534 lt
+6268 5529 lt
+6572 5528 lt
+6876 5532 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 6114 mt
+1103 6314 lt
+1407 6381 lt
+1711 6374 lt
+2015 6326 lt
+2319 6254 lt
+2622 6166 lt
+2926 6073 lt
+3230 5979 lt
+3534 5889 lt
+3838 5807 lt
+4141 5735 lt
+4445 5675 lt
+4749 5626 lt
+5053 5588 lt
+5357 5560 lt
+5660 5541 lt
+5964 5530 lt
+6268 5526 lt
+6572 5526 lt
+6876 5530 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+800 5959 mt
+1103 6022 lt
+1407 5992 lt
+1711 5949 lt
+2015 5907 lt
+2319 5863 lt
+2622 5815 lt
+2926 5761 lt
+3230 5705 lt
+3534 5650 lt
+3838 5615 lt
+4141 5571 lt
+4445 5534 lt
+4749 5505 lt
+5053 5484 lt
+5357 5470 lt
+5660 5461 lt
+5964 5458 lt
+6268 5459 lt
+6572 5463 lt
+6876 5469 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+800 6203 mt
+1103 6446 lt
+1407 6546 lt
+1711 6553 lt
+2015 6508 lt
+2319 6437 lt
+2622 6353 lt
+2926 6263 lt
+3230 6174 lt
+3534 6087 lt
+3838 6022 lt
+4141 5948 lt
+4445 5882 lt
+4749 5824 lt
+5053 5774 lt
+5357 5732 lt
+5660 5699 lt
+5964 5674 lt
+6268 5655 lt
+6572 5642 lt
+6876 5634 lt
+EndPath
+330 /F0 Font
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+300 /F0 Font
+8587 5320 Mto
+8587 5440 Lto
+8518 5020 Mto
+(2) T
+9195 5320 Mto
+9195 5440 Lto
+9126 5020 Mto
+(4) T
+9802 5320 Mto
+9802 5440 Lto
+9733 5020 Mto
+(6) T
+10410 5320 Mto
+10410 5440 Lto
+10341 5020 Mto
+(8) T
+11018 5320 Mto
+11018 5440 Lto
+10879 5020 Mto
+(10)T
+11625 5320 Mto
+11625 5440 Lto
+11486 5020 Mto
+(12)T
+12233 5320 Mto
+12233 5440 Lto
+12094 5020 Mto
+(14)T
+12840 5320 Mto
+12840 5440 Lto
+12701 5020 Mto
+(16)T
+13448 5320 Mto
+13448 5440 Lto
+13309 5020 Mto
+(18)T
+14056 5320 Mto
+14056 5440 Lto
+13917 5020 Mto
+(20)T
+7980 5320 Mto
+14056 5320 Lto
+14 SetColor
+/Ltp { Linetype14 } def /Lwd { Linewidth14 } def Slt
+7980 5594 Mto
+14056 5594 Lto
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+/Rot 360 def
+7980 5594 Mto
+8040 5594 Lto
+7980 5969 Mto
+8040 5969 Lto
+7980 6344 Mto
+8040 6344 Lto
+7980 6718 Mto
+8040 6718 Lto
+7980 5594 Mto
+8100 5594 Lto
+7930 5494 Mto
+(0.0)T
+7980 6344 Mto
+8100 6344 Lto
+7930 6244 Mto
+(0.2)T
+7980 5320 Mto
+7980 7020 Lto
+/Rot 0 def
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5594 mt
+8283 6283 lt
+8587 6536 lt
+8891 6615 lt
+9195 6566 lt
+9499 6455 lt
+9802 6308 lt
+10106 6152 lt
+10410 6005 lt
+10714 5878 lt
+11018 5775 lt
+11321 5699 lt
+11625 5646 lt
+11929 5611 lt
+12233 5593 lt
+12537 5586 lt
+12840 5587 lt
+13144 5593 lt
+13448 5600 lt
+13752 5608 lt
+14056 5615 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5601 mt
+8283 6289 lt
+8587 6540 lt
+8891 6618 lt
+9195 6568 lt
+9499 6455 lt
+9802 6307 lt
+10106 6149 lt
+10410 6001 lt
+10714 5874 lt
+11018 5772 lt
+11321 5695 lt
+11625 5642 lt
+11929 5608 lt
+12233 5590 lt
+12537 5584 lt
+12840 5585 lt
+13144 5591 lt
+13448 5598 lt
+13752 5606 lt
+14056 5614 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5609 mt
+8283 6294 lt
+8587 6545 lt
+8891 6621 lt
+9195 6570 lt
+9499 6455 lt
+9802 6305 lt
+10106 6147 lt
+10410 5998 lt
+10714 5871 lt
+11018 5768 lt
+11321 5691 lt
+11625 5638 lt
+11929 5605 lt
+12233 5587 lt
+12537 5581 lt
+12840 5582 lt
+13144 5588 lt
+13448 5596 lt
+13752 5604 lt
+14056 5612 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5616 mt
+8283 6300 lt
+8587 6549 lt
+8891 6624 lt
+9195 6571 lt
+9499 6455 lt
+9802 6304 lt
+10106 6144 lt
+10410 5995 lt
+10714 5867 lt
+11018 5764 lt
+11321 5687 lt
+11625 5635 lt
+11929 5601 lt
+12233 5584 lt
+12537 5578 lt
+12840 5580 lt
+13144 5586 lt
+13448 5594 lt
+13752 5602 lt
+14056 5610 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5624 mt
+8283 6306 lt
+8587 6554 lt
+8891 6628 lt
+9195 6573 lt
+9499 6455 lt
+9802 6302 lt
+10106 6142 lt
+10410 5992 lt
+10714 5863 lt
+11018 5760 lt
+11321 5684 lt
+11625 5631 lt
+11929 5598 lt
+12233 5580 lt
+12537 5575 lt
+12840 5577 lt
+13144 5583 lt
+13448 5592 lt
+13752 5600 lt
+14056 5608 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5632 mt
+8283 6311 lt
+8587 6559 lt
+8891 6631 lt
+9195 6574 lt
+9499 6455 lt
+9802 6301 lt
+10106 6139 lt
+10410 5988 lt
+10714 5859 lt
+11018 5756 lt
+11321 5680 lt
+11625 5627 lt
+11929 5594 lt
+12233 5577 lt
+12537 5572 lt
+12840 5574 lt
+13144 5581 lt
+13448 5590 lt
+13752 5598 lt
+14056 5606 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5640 mt
+8283 6317 lt
+8587 6563 lt
+8891 6634 lt
+9195 6575 lt
+9499 6455 lt
+9802 6299 lt
+10106 6136 lt
+10410 5985 lt
+10714 5855 lt
+11018 5752 lt
+11321 5675 lt
+11625 5623 lt
+11929 5590 lt
+12233 5574 lt
+12537 5569 lt
+12840 5571 lt
+13144 5578 lt
+13448 5587 lt
+13752 5596 lt
+14056 5604 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5649 mt
+8283 6323 lt
+8587 6568 lt
+8891 6637 lt
+9195 6577 lt
+9499 6454 lt
+9802 6297 lt
+10106 6133 lt
+10410 5981 lt
+10714 5851 lt
+11018 5748 lt
+11321 5671 lt
+11625 5619 lt
+11929 5586 lt
+12233 5570 lt
+12537 5566 lt
+12840 5569 lt
+13144 5576 lt
+13448 5585 lt
+13752 5594 lt
+14056 5603 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5657 mt
+8283 6329 lt
+8587 6573 lt
+8891 6639 lt
+9195 6578 lt
+9499 6454 lt
+9802 6295 lt
+10106 6130 lt
+10410 5977 lt
+10714 5847 lt
+11018 5743 lt
+11321 5667 lt
+11625 5615 lt
+11929 5583 lt
+12233 5567 lt
+12537 5562 lt
+12840 5566 lt
+13144 5573 lt
+13448 5583 lt
+13752 5592 lt
+14056 5601 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5666 mt
+8283 6335 lt
+8587 6577 lt
+8891 6642 lt
+9195 6579 lt
+9499 6453 lt
+9802 6293 lt
+10106 6127 lt
+10410 5973 lt
+10714 5843 lt
+11018 5739 lt
+11321 5662 lt
+11625 5610 lt
+11929 5579 lt
+12233 5563 lt
+12537 5559 lt
+12840 5563 lt
+13144 5570 lt
+13448 5580 lt
+13752 5590 lt
+14056 5598 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5675 mt
+8283 6341 lt
+8587 6582 lt
+8891 6645 lt
+9195 6580 lt
+9499 6452 lt
+9802 6291 lt
+10106 6123 lt
+10410 5969 lt
+10714 5838 lt
+11018 5734 lt
+11321 5658 lt
+11625 5606 lt
+11929 5575 lt
+12233 5559 lt
+12537 5556 lt
+12840 5560 lt
+13144 5568 lt
+13448 5578 lt
+13752 5588 lt
+14056 5596 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5684 mt
+8283 6347 lt
+8587 6586 lt
+8891 6648 lt
+9195 6580 lt
+9499 6451 lt
+9802 6288 lt
+10106 6120 lt
+10410 5965 lt
+10714 5833 lt
+11018 5730 lt
+11321 5653 lt
+11625 5602 lt
+11929 5570 lt
+12233 5556 lt
+12537 5552 lt
+12840 5556 lt
+13144 5565 lt
+13448 5575 lt
+13752 5585 lt
+14056 5594 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5693 mt
+8283 6353 lt
+8587 6591 lt
+8891 6650 lt
+9195 6581 lt
+9499 6450 lt
+9802 6285 lt
+10106 6116 lt
+10410 5961 lt
+10714 5829 lt
+11018 5725 lt
+11321 5648 lt
+11625 5597 lt
+11929 5566 lt
+12233 5552 lt
+12537 5549 lt
+12840 5553 lt
+13144 5562 lt
+13448 5572 lt
+13752 5583 lt
+14056 5592 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5703 mt
+8283 6359 lt
+8587 6595 lt
+8891 6652 lt
+9195 6581 lt
+9499 6448 lt
+9802 6282 lt
+10106 6112 lt
+10410 5956 lt
+10714 5824 lt
+11018 5720 lt
+11321 5643 lt
+11625 5592 lt
+11929 5562 lt
+12233 5548 lt
+12537 5545 lt
+12840 5550 lt
+13144 5559 lt
+13448 5570 lt
+13752 5580 lt
+14056 5590 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5712 mt
+8283 6365 lt
+8587 6599 lt
+8891 6655 lt
+9195 6581 lt
+9499 6447 lt
+9802 6279 lt
+10106 6108 lt
+10410 5951 lt
+10714 5819 lt
+11018 5714 lt
+11321 5638 lt
+11625 5587 lt
+11929 5557 lt
+12233 5544 lt
+12537 5541 lt
+12840 5547 lt
+13144 5556 lt
+13448 5567 lt
+13752 5578 lt
+14056 5588 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5722 mt
+8283 6371 lt
+8587 6603 lt
+8891 6657 lt
+9195 6581 lt
+9499 6445 lt
+9802 6276 lt
+10106 6104 lt
+10410 5946 lt
+10714 5813 lt
+11018 5709 lt
+11321 5633 lt
+11625 5582 lt
+11929 5553 lt
+12233 5539 lt
+12537 5538 lt
+12840 5543 lt
+13144 5553 lt
+13448 5564 lt
+13752 5575 lt
+14056 5585 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5733 mt
+8283 6377 lt
+8587 6607 lt
+8891 6658 lt
+9195 6581 lt
+9499 6443 lt
+9802 6272 lt
+10106 6099 lt
+10410 5941 lt
+10714 5808 lt
+11018 5703 lt
+11321 5628 lt
+11625 5577 lt
+11929 5548 lt
+12233 5535 lt
+12537 5534 lt
+12840 5540 lt
+13144 5550 lt
+13448 5561 lt
+13752 5573 lt
+14056 5583 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5743 mt
+8283 6383 lt
+8587 6611 lt
+8891 6660 lt
+9195 6581 lt
+9499 6440 lt
+9802 6268 lt
+10106 6094 lt
+10410 5935 lt
+10714 5802 lt
+11018 5698 lt
+11321 5622 lt
+11625 5572 lt
+11929 5543 lt
+12233 5531 lt
+12537 5530 lt
+12840 5536 lt
+13144 5546 lt
+13448 5558 lt
+13752 5570 lt
+14056 5580 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5754 mt
+8283 6389 lt
+8587 6615 lt
+8891 6661 lt
+9195 6580 lt
+9499 6437 lt
+9802 6264 lt
+10106 6089 lt
+10410 5930 lt
+10714 5796 lt
+11018 5692 lt
+11321 5616 lt
+11625 5567 lt
+11929 5539 lt
+12233 5526 lt
+12537 5526 lt
+12840 5532 lt
+13144 5543 lt
+13448 5555 lt
+13752 5567 lt
+14056 5578 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5765 mt
+8283 6394 lt
+8587 6618 lt
+8891 6662 lt
+9195 6579 lt
+9499 6434 lt
+9802 6260 lt
+10106 6083 lt
+10410 5924 lt
+10714 5790 lt
+11018 5686 lt
+11321 5610 lt
+11625 5561 lt
+11929 5533 lt
+12233 5522 lt
+12537 5522 lt
+12840 5529 lt
+13144 5540 lt
+13448 5552 lt
+13752 5564 lt
+14056 5575 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5776 mt
+8283 6400 lt
+8587 6621 lt
+8891 6663 lt
+9195 6577 lt
+9499 6431 lt
+9802 6255 lt
+10106 6078 lt
+10410 5917 lt
+10714 5783 lt
+11018 5679 lt
+11321 5604 lt
+11625 5555 lt
+11929 5528 lt
+12233 5517 lt
+12537 5517 lt
+12840 5525 lt
+13144 5536 lt
+13448 5549 lt
+13752 5561 lt
+14056 5572 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5788 mt
+8283 6405 lt
+8587 6624 lt
+8891 6663 lt
+9195 6575 lt
+9499 6427 lt
+9802 6249 lt
+10106 6071 lt
+10410 5911 lt
+10714 5777 lt
+11018 5673 lt
+11321 5598 lt
+11625 5550 lt
+11929 5523 lt
+12233 5512 lt
+12537 5513 lt
+12840 5521 lt
+13144 5533 lt
+13448 5546 lt
+13752 5558 lt
+14056 5570 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5799 mt
+8283 6411 lt
+8587 6626 lt
+8891 6663 lt
+9195 6572 lt
+9499 6422 lt
+9802 6244 lt
+10106 6065 lt
+10410 5903 lt
+10714 5769 lt
+11018 5666 lt
+11321 5592 lt
+11625 5544 lt
+11929 5518 lt
+12233 5507 lt
+12537 5508 lt
+12840 5517 lt
+13144 5529 lt
+13448 5542 lt
+13752 5555 lt
+14056 5567 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5812 mt
+8283 6416 lt
+8587 6628 lt
+8891 6662 lt
+9195 6569 lt
+9499 6417 lt
+9802 6237 lt
+10106 6058 lt
+10410 5896 lt
+10714 5762 lt
+11018 5659 lt
+11321 5585 lt
+11625 5537 lt
+11929 5512 lt
+12233 5502 lt
+12537 5504 lt
+12840 5513 lt
+13144 5525 lt
+13448 5539 lt
+13752 5552 lt
+14056 5564 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5824 mt
+8283 6420 lt
+8587 6630 lt
+8891 6660 lt
+9195 6565 lt
+9499 6411 lt
+9802 6230 lt
+10106 6050 lt
+10410 5888 lt
+10714 5754 lt
+11018 5651 lt
+11321 5578 lt
+11625 5531 lt
+11929 5506 lt
+12233 5497 lt
+12537 5499 lt
+12840 5508 lt
+13144 5521 lt
+13448 5535 lt
+13752 5549 lt
+14056 5561 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5837 mt
+8283 6425 lt
+8587 6630 lt
+8891 6658 lt
+9195 6561 lt
+9499 6405 lt
+9802 6222 lt
+10106 6042 lt
+10410 5880 lt
+10714 5746 lt
+11018 5643 lt
+11321 5571 lt
+11625 5524 lt
+11929 5500 lt
+12233 5492 lt
+12537 5494 lt
+12840 5504 lt
+13144 5517 lt
+13448 5532 lt
+13752 5546 lt
+14056 5558 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 5850 mt
+8283 6428 lt
+8587 6630 lt
+8891 6654 lt
+9195 6555 lt
+9499 6397 lt
+9802 6214 lt
+10106 6032 lt
+10410 5871 lt
+10714 5737 lt
+11018 5635 lt
+11321 5563 lt
+11625 5517 lt
+11929 5494 lt
+12233 5486 lt
+12537 5489 lt
+12840 5500 lt
+13144 5513 lt
+13448 5528 lt
+13752 5542 lt
+14056 5555 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+7980 5594 mt
+8283 6134 lt
+8587 6308 lt
+8891 6341 lt
+9195 6301 lt
+9499 6167 lt
+9802 5999 lt
+10106 5831 lt
+10410 5681 lt
+10714 5558 lt
+11018 5466 lt
+11321 5402 lt
+11625 5365 lt
+11929 5347 lt
+12233 5344 lt
+12537 5352 lt
+12840 5368 lt
+13144 5387 lt
+13448 5408 lt
+13752 5430 lt
+14056 5451 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+7980 5886 mt
+8283 6556 lt
+8587 6825 lt
+8891 6890 lt
+9195 6859 lt
+9499 6718 lt
+9802 6552 lt
+10106 6381 lt
+10410 6225 lt
+10714 6089 lt
+11018 5978 lt
+11321 5891 lt
+11625 5826 lt
+11929 5783 lt
+12233 5755 lt
+12537 5741 lt
+12840 5737 lt
+13144 5737 lt
+13448 5739 lt
+13752 5741 lt
+14056 5741 lt
+EndPath
+330 /F0 Font
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+300 /F0 Font
+1407 2980 Mto
+1407 3100 Lto
+1338 2680 Mto
+(2) T
+2015 2980 Mto
+2015 3100 Lto
+1946 2680 Mto
+(4) T
+2622 2980 Mto
+2622 3100 Lto
+2553 2680 Mto
+(6) T
+3230 2980 Mto
+3230 3100 Lto
+3161 2680 Mto
+(8) T
+3838 2980 Mto
+3838 3100 Lto
+3699 2680 Mto
+(10)T
+4445 2980 Mto
+4445 3100 Lto
+4306 2680 Mto
+(12)T
+5053 2980 Mto
+5053 3100 Lto
+4914 2680 Mto
+(14)T
+5660 2980 Mto
+5660 3100 Lto
+5521 2680 Mto
+(16)T
+6268 2980 Mto
+6268 3100 Lto
+6129 2680 Mto
+(18)T
+6876 2980 Mto
+6876 3100 Lto
+6737 2680 Mto
+(20)T
+800 2980 Mto
+6876 2980 Lto
+14 SetColor
+/Ltp { Linetype14 } def /Lwd { Linewidth14 } def Slt
+800 4248 Mto
+6876 4248 Lto
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+/Rot 90 def
+800 3233 Mto
+860 3233 Lto
+800 3487 Mto
+860 3487 Lto
+800 3741 Mto
+860 3741 Lto
+800 3995 Mto
+860 3995 Lto
+800 4248 Mto
+860 4248 Lto
+800 4502 Mto
+860 4502 Lto
+800 3233 Mto
+920 3233 Lto
+700 3013 Mto
+(\2550.2)T
+800 3741 Mto
+920 3741 Lto
+700 3521 Mto
+(\2550.1)T
+800 4248 Mto
+920 4248 Lto
+700 4179 Mto
+(0) T
+800 2980 Mto
+800 4680 Lto
+/Rot 0 def
+360 /F0 Font
+1 SetColor
+/Rot 90 def
+360 3200 Mto
+(Call rate)T
+/Rot 0 def
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3474 mt
+1103 3401 lt
+1407 3541 lt
+1711 3718 lt
+2015 3876 lt
+2319 4006 lt
+2622 4108 lt
+2926 4186 lt
+3230 4242 lt
+3534 4281 lt
+3838 4306 lt
+4141 4318 lt
+4445 4323 lt
+4749 4321 lt
+5053 4314 lt
+5357 4305 lt
+5660 4295 lt
+5964 4285 lt
+6268 4275 lt
+6572 4265 lt
+6876 4257 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3482 mt
+1103 3411 lt
+1407 3551 lt
+1711 3729 lt
+2015 3887 lt
+2319 4016 lt
+2622 4118 lt
+2926 4194 lt
+3230 4250 lt
+3534 4287 lt
+3838 4310 lt
+4141 4322 lt
+4445 4326 lt
+4749 4323 lt
+5053 4316 lt
+5357 4306 lt
+5660 4295 lt
+5964 4285 lt
+6268 4274 lt
+6572 4265 lt
+6876 4257 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3489 mt
+1103 3422 lt
+1407 3562 lt
+1711 3740 lt
+2015 3898 lt
+2319 4026 lt
+2622 4127 lt
+2926 4203 lt
+3230 4257 lt
+3534 4293 lt
+3838 4316 lt
+4141 4326 lt
+4445 4329 lt
+4749 4325 lt
+5053 4317 lt
+5357 4307 lt
+5660 4296 lt
+5964 4284 lt
+6268 4274 lt
+6572 4264 lt
+6876 4256 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3497 mt
+1103 3432 lt
+1407 3574 lt
+1711 3751 lt
+2015 3909 lt
+2319 4037 lt
+2622 4137 lt
+2926 4211 lt
+3230 4265 lt
+3534 4300 lt
+3838 4321 lt
+4141 4330 lt
+4445 4332 lt
+4749 4327 lt
+5053 4318 lt
+5357 4308 lt
+5660 4296 lt
+5964 4284 lt
+6268 4273 lt
+6572 4264 lt
+6876 4256 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3505 mt
+1103 3443 lt
+1407 3586 lt
+1711 3763 lt
+2015 3920 lt
+2319 4048 lt
+2622 4147 lt
+2926 4220 lt
+3230 4272 lt
+3534 4306 lt
+3838 4326 lt
+4141 4335 lt
+4445 4335 lt
+4749 4329 lt
+5053 4320 lt
+5357 4308 lt
+5660 4296 lt
+5964 4284 lt
+6268 4273 lt
+6572 4263 lt
+6876 4255 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3514 mt
+1103 3454 lt
+1407 3598 lt
+1711 3775 lt
+2015 3932 lt
+2319 4059 lt
+2622 4157 lt
+2926 4229 lt
+3230 4280 lt
+3534 4313 lt
+3838 4331 lt
+4141 4339 lt
+4445 4338 lt
+4749 4331 lt
+5053 4321 lt
+5357 4309 lt
+5660 4296 lt
+5964 4284 lt
+6268 4273 lt
+6572 4263 lt
+6876 4254 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3523 mt
+1103 3466 lt
+1407 3610 lt
+1711 3788 lt
+2015 3944 lt
+2319 4070 lt
+2622 4167 lt
+2926 4239 lt
+3230 4288 lt
+3534 4320 lt
+3838 4337 lt
+4141 4343 lt
+4445 4341 lt
+4749 4334 lt
+5053 4323 lt
+5357 4310 lt
+5660 4297 lt
+5964 4284 lt
+6268 4272 lt
+6572 4262 lt
+6876 4253 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3531 mt
+1103 3478 lt
+1407 3623 lt
+1711 3800 lt
+2015 3957 lt
+2319 4082 lt
+2622 4178 lt
+2926 4248 lt
+3230 4296 lt
+3534 4326 lt
+3838 4342 lt
+4141 4347 lt
+4445 4344 lt
+4749 4336 lt
+5053 4324 lt
+5357 4311 lt
+5660 4297 lt
+5964 4284 lt
+6268 4272 lt
+6572 4261 lt
+6876 4253 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3541 mt
+1103 3490 lt
+1407 3636 lt
+1711 3814 lt
+2015 3969 lt
+2319 4094 lt
+2622 4189 lt
+2926 4258 lt
+3230 4305 lt
+3534 4333 lt
+3838 4348 lt
+4141 4352 lt
+4445 4348 lt
+4749 4338 lt
+5053 4326 lt
+5357 4311 lt
+5660 4297 lt
+5964 4283 lt
+6268 4271 lt
+6572 4261 lt
+6876 4252 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3550 mt
+1103 3503 lt
+1407 3649 lt
+1711 3827 lt
+2015 3982 lt
+2319 4106 lt
+2622 4200 lt
+2926 4268 lt
+3230 4313 lt
+3534 4341 lt
+3838 4354 lt
+4141 4356 lt
+4445 4351 lt
+4749 4341 lt
+5053 4327 lt
+5357 4312 lt
+5660 4297 lt
+5964 4283 lt
+6268 4271 lt
+6572 4260 lt
+6876 4251 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3560 mt
+1103 3516 lt
+1407 3663 lt
+1711 3841 lt
+2015 3996 lt
+2319 4119 lt
+2622 4211 lt
+2926 4278 lt
+3230 4322 lt
+3534 4348 lt
+3838 4360 lt
+4141 4361 lt
+4445 4355 lt
+4749 4343 lt
+5053 4329 lt
+5357 4313 lt
+5660 4298 lt
+5964 4283 lt
+6268 4270 lt
+6572 4259 lt
+6876 4250 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3571 mt
+1103 3529 lt
+1407 3678 lt
+1711 3855 lt
+2015 4009 lt
+2319 4131 lt
+2622 4223 lt
+2926 4288 lt
+3230 4331 lt
+3534 4355 lt
+3838 4366 lt
+4141 4366 lt
+4445 4358 lt
+4749 4345 lt
+5053 4330 lt
+5357 4314 lt
+5660 4298 lt
+5964 4283 lt
+6268 4270 lt
+6572 4259 lt
+6876 4250 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3581 mt
+1103 3543 lt
+1407 3692 lt
+1711 3870 lt
+2015 4024 lt
+2319 4145 lt
+2622 4235 lt
+2926 4299 lt
+3230 4340 lt
+3534 4363 lt
+3838 4372 lt
+4141 4370 lt
+4445 4362 lt
+4749 4348 lt
+5053 4332 lt
+5357 4315 lt
+5660 4298 lt
+5964 4283 lt
+6268 4269 lt
+6572 4258 lt
+6876 4249 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3592 mt
+1103 3558 lt
+1407 3708 lt
+1711 3885 lt
+2015 4038 lt
+2319 4158 lt
+2622 4247 lt
+2926 4310 lt
+3230 4349 lt
+3534 4371 lt
+3838 4378 lt
+4141 4375 lt
+4445 4365 lt
+4749 4350 lt
+5053 4333 lt
+5357 4316 lt
+5660 4298 lt
+5964 4282 lt
+6268 4269 lt
+6572 4257 lt
+6876 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3604 mt
+1103 3573 lt
+1407 3723 lt
+1711 3901 lt
+2015 4053 lt
+2319 4172 lt
+2622 4260 lt
+2926 4321 lt
+3230 4359 lt
+3534 4379 lt
+3838 4385 lt
+4141 4380 lt
+4445 4369 lt
+4749 4353 lt
+5053 4335 lt
+5357 4316 lt
+5660 4298 lt
+5964 4282 lt
+6268 4268 lt
+6572 4256 lt
+6876 4247 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3616 mt
+1103 3588 lt
+1407 3740 lt
+1711 3917 lt
+2015 4068 lt
+2319 4186 lt
+2622 4273 lt
+2926 4332 lt
+3230 4369 lt
+3534 4387 lt
+3838 4391 lt
+4141 4386 lt
+4445 4373 lt
+4749 4356 lt
+5053 4337 lt
+5357 4317 lt
+5660 4299 lt
+5964 4282 lt
+6268 4267 lt
+6572 4255 lt
+6876 4246 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3628 mt
+1103 3604 lt
+1407 3757 lt
+1711 3933 lt
+2015 4084 lt
+2319 4201 lt
+2622 4286 lt
+2926 4344 lt
+3230 4379 lt
+3534 4395 lt
+3838 4398 lt
+4141 4391 lt
+4445 4377 lt
+4749 4358 lt
+5053 4338 lt
+5357 4318 lt
+5660 4299 lt
+5964 4282 lt
+6268 4267 lt
+6572 4255 lt
+6876 4245 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3641 mt
+1103 3621 lt
+1407 3774 lt
+1711 3950 lt
+2015 4100 lt
+2319 4216 lt
+2622 4300 lt
+2926 4356 lt
+3230 4389 lt
+3534 4404 lt
+3838 4405 lt
+4141 4396 lt
+4445 4381 lt
+4749 4361 lt
+5053 4340 lt
+5357 4319 lt
+5660 4299 lt
+5964 4281 lt
+6268 4266 lt
+6572 4254 lt
+6876 4244 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3654 mt
+1103 3639 lt
+1407 3792 lt
+1711 3968 lt
+2015 4117 lt
+2319 4232 lt
+2622 4314 lt
+2926 4368 lt
+3230 4399 lt
+3534 4413 lt
+3838 4412 lt
+4141 4401 lt
+4445 4385 lt
+4749 4364 lt
+5053 4342 lt
+5357 4320 lt
+5660 4299 lt
+5964 4281 lt
+6268 4266 lt
+6572 4253 lt
+6876 4243 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3668 mt
+1103 3657 lt
+1407 3811 lt
+1711 3986 lt
+2015 4135 lt
+2319 4248 lt
+2622 4328 lt
+2926 4381 lt
+3230 4410 lt
+3534 4422 lt
+3838 4419 lt
+4141 4407 lt
+4445 4389 lt
+4749 4367 lt
+5053 4343 lt
+5357 4321 lt
+5660 4299 lt
+5964 4281 lt
+6268 4265 lt
+6572 4252 lt
+6876 4242 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3683 mt
+1103 3676 lt
+1407 3830 lt
+1711 4005 lt
+2015 4152 lt
+2319 4264 lt
+2622 4343 lt
+2926 4394 lt
+3230 4421 lt
+3534 4431 lt
+3838 4426 lt
+4141 4413 lt
+4445 4393 lt
+4749 4369 lt
+5053 4345 lt
+5357 4321 lt
+5660 4300 lt
+5964 4280 lt
+6268 4264 lt
+6572 4251 lt
+6876 4241 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3699 mt
+1103 3695 lt
+1407 3851 lt
+1711 4025 lt
+2015 4171 lt
+2319 4281 lt
+2622 4358 lt
+2926 4407 lt
+3230 4433 lt
+3534 4440 lt
+3838 4434 lt
+4141 4418 lt
+4445 4397 lt
+4749 4372 lt
+5053 4347 lt
+5357 4322 lt
+5660 4300 lt
+5964 4280 lt
+6268 4263 lt
+6572 4250 lt
+6876 4240 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3715 mt
+1103 3716 lt
+1407 3872 lt
+1711 4046 lt
+2015 4190 lt
+2319 4299 lt
+2622 4374 lt
+2926 4421 lt
+3230 4444 lt
+3534 4450 lt
+3838 4442 lt
+4141 4424 lt
+4445 4401 lt
+4749 4375 lt
+5053 4349 lt
+5357 4323 lt
+5660 4300 lt
+5964 4280 lt
+6268 4263 lt
+6572 4249 lt
+6876 4239 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3732 mt
+1103 3738 lt
+1407 3894 lt
+1711 4067 lt
+2015 4210 lt
+2319 4317 lt
+2622 4390 lt
+2926 4435 lt
+3230 4456 lt
+3534 4459 lt
+3838 4449 lt
+4141 4430 lt
+4445 4406 lt
+4749 4378 lt
+5053 4350 lt
+5357 4324 lt
+5660 4300 lt
+5964 4279 lt
+6268 4262 lt
+6572 4248 lt
+6876 4238 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3750 mt
+1103 3761 lt
+1407 3917 lt
+1711 4089 lt
+2015 4231 lt
+2319 4336 lt
+2622 4407 lt
+2926 4449 lt
+3230 4468 lt
+3534 4470 lt
+3838 4457 lt
+4141 4436 lt
+4445 4410 lt
+4749 4381 lt
+5053 4352 lt
+5357 4325 lt
+5660 4300 lt
+5964 4279 lt
+6268 4261 lt
+6572 4247 lt
+6876 4237 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3769 mt
+1103 3785 lt
+1407 3942 lt
+1711 4112 lt
+2015 4252 lt
+2319 4355 lt
+2622 4424 lt
+2926 4464 lt
+3230 4481 lt
+3534 4480 lt
+3838 4466 lt
+4141 4443 lt
+4445 4415 lt
+4749 4384 lt
+5053 4354 lt
+5357 4326 lt
+5660 4300 lt
+5964 4278 lt
+6268 4260 lt
+6572 4246 lt
+6876 4236 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 3789 mt
+1103 3810 lt
+1407 3967 lt
+1711 4137 lt
+2015 4275 lt
+2319 4375 lt
+2622 4442 lt
+2926 4480 lt
+3230 4494 lt
+3534 4490 lt
+3838 4474 lt
+4141 4449 lt
+4445 4419 lt
+4749 4387 lt
+5053 4356 lt
+5357 4326 lt
+5660 4300 lt
+5964 4278 lt
+6268 4259 lt
+6572 4245 lt
+6876 4234 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+800 3394 mt
+1103 3277 lt
+1407 3389 lt
+1711 3559 lt
+2015 3720 lt
+2319 3852 lt
+2622 3956 lt
+2926 4035 lt
+3230 4092 lt
+3534 4130 lt
+3838 4155 lt
+4141 4169 lt
+4445 4177 lt
+4749 4179 lt
+5053 4178 lt
+5357 4176 lt
+5660 4172 lt
+5964 4172 lt
+6268 4168 lt
+6572 4166 lt
+6876 4164 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+800 3900 mt
+1103 3964 lt
+1407 4139 lt
+1711 4248 lt
+2015 4434 lt
+2319 4527 lt
+2622 4590 lt
+2926 4626 lt
+3230 4640 lt
+3534 4637 lt
+3838 4620 lt
+4141 4593 lt
+4445 4560 lt
+4749 4523 lt
+5053 4486 lt
+5357 4451 lt
+5660 4418 lt
+5964 4393 lt
+6268 4367 lt
+6572 4345 lt
+6876 4328 lt
+EndPath
+330 /F0 Font
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+300 /F0 Font
+8587 2980 Mto
+8587 3100 Lto
+8518 2680 Mto
+(2) T
+9195 2980 Mto
+9195 3100 Lto
+9126 2680 Mto
+(4) T
+9802 2980 Mto
+9802 3100 Lto
+9733 2680 Mto
+(6) T
+10410 2980 Mto
+10410 3100 Lto
+10341 2680 Mto
+(8) T
+11018 2980 Mto
+11018 3100 Lto
+10879 2680 Mto
+(10)T
+11625 2980 Mto
+11625 3100 Lto
+11486 2680 Mto
+(12)T
+12233 2980 Mto
+12233 3100 Lto
+12094 2680 Mto
+(14)T
+12840 2980 Mto
+12840 3100 Lto
+12701 2680 Mto
+(16)T
+13448 2980 Mto
+13448 3100 Lto
+13309 2680 Mto
+(18)T
+14056 2980 Mto
+14056 3100 Lto
+13917 2680 Mto
+(20)T
+7980 2980 Mto
+14056 2980 Lto
+14 SetColor
+/Ltp { Linetype14 } def /Lwd { Linewidth14 } def Slt
+7980 4248 Mto
+14056 4248 Lto
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+/Rot 360 def
+7980 3233 Mto
+8040 3233 Lto
+7980 3487 Mto
+8040 3487 Lto
+7980 3741 Mto
+8040 3741 Lto
+7980 3995 Mto
+8040 3995 Lto
+7980 4248 Mto
+8040 4248 Lto
+7980 4502 Mto
+8040 4502 Lto
+7980 3233 Mto
+8100 3233 Lto
+7930 3133 Mto
+(\2550.2)T
+7980 3741 Mto
+8100 3741 Lto
+7930 3641 Mto
+(\2550.1)T
+7980 4248 Mto
+8100 4248 Lto
+7930 4148 Mto
+(0.0)T
+7980 2980 Mto
+7980 4680 Lto
+/Rot 0 def
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4247 lt
+11929 4247 lt
+12233 4247 lt
+12537 4247 lt
+12840 4247 lt
+13144 4247 lt
+13448 4247 lt
+13752 4247 lt
+14056 4247 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4247 lt
+11929 4247 lt
+12233 4247 lt
+12537 4247 lt
+12840 4247 lt
+13144 4247 lt
+13448 4247 lt
+13752 4247 lt
+14056 4247 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4247 lt
+11929 4247 lt
+12233 4247 lt
+12537 4247 lt
+12840 4247 lt
+13144 4247 lt
+13448 4247 lt
+13752 4247 lt
+14056 4247 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4247 lt
+11929 4247 lt
+12233 4247 lt
+12537 4247 lt
+12840 4247 lt
+13144 4247 lt
+13448 4247 lt
+13752 4247 lt
+14056 4247 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4247 lt
+11929 4247 lt
+12233 4247 lt
+12537 4247 lt
+12840 4247 lt
+13144 4247 lt
+13448 4247 lt
+13752 4247 lt
+14056 4247 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4247 lt
+11929 4247 lt
+12233 4247 lt
+12537 4247 lt
+12840 4247 lt
+13144 4247 lt
+13448 4247 lt
+13752 4247 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4247 lt
+11929 4247 lt
+12233 4247 lt
+12537 4247 lt
+12840 4247 lt
+13144 4247 lt
+13448 4247 lt
+13752 4247 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4247 lt
+11929 4248 lt
+12233 4248 lt
+12537 4248 lt
+12840 4247 lt
+13144 4247 lt
+13448 4247 lt
+13752 4247 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4248 lt
+11929 4248 lt
+12233 4248 lt
+12537 4248 lt
+12840 4247 lt
+13144 4247 lt
+13448 4247 lt
+13752 4247 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4248 lt
+11929 4248 lt
+12233 4248 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4247 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4248 lt
+11929 4248 lt
+12233 4248 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4248 lt
+11929 4248 lt
+12233 4248 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4248 lt
+11929 4248 lt
+12233 4248 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4248 lt
+11929 4248 lt
+12233 4248 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4248 lt
+10714 4248 lt
+11018 4248 lt
+11321 4248 lt
+11625 4248 lt
+11929 4248 lt
+12233 4248 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4248 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4248 lt
+11625 4248 lt
+11929 4248 lt
+12233 4248 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4249 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4249 lt
+11625 4249 lt
+11929 4248 lt
+12233 4248 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4249 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4249 lt
+11625 4249 lt
+11929 4249 lt
+12233 4248 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4248 lt
+10106 4249 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4249 lt
+11625 4249 lt
+11929 4249 lt
+12233 4248 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4249 lt
+10106 4249 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4249 lt
+11625 4249 lt
+11929 4249 lt
+12233 4249 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4249 lt
+10106 4249 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4249 lt
+11625 4249 lt
+11929 4249 lt
+12233 4249 lt
+12537 4248 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4249 lt
+10106 4249 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4249 lt
+11625 4249 lt
+11929 4249 lt
+12233 4249 lt
+12537 4249 lt
+12840 4248 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4249 lt
+10106 4249 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4249 lt
+11625 4249 lt
+11929 4249 lt
+12233 4249 lt
+12537 4249 lt
+12840 4249 lt
+13144 4248 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4249 lt
+10106 4249 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4249 lt
+11625 4250 lt
+11929 4249 lt
+12233 4249 lt
+12537 4249 lt
+12840 4249 lt
+13144 4249 lt
+13448 4248 lt
+13752 4248 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4249 lt
+10106 4249 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4249 lt
+11625 4250 lt
+11929 4249 lt
+12233 4249 lt
+12537 4249 lt
+12840 4249 lt
+13144 4249 lt
+13448 4249 lt
+13752 4249 lt
+14056 4248 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4249 lt
+10106 4249 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4249 lt
+11625 4250 lt
+11929 4250 lt
+12233 4249 lt
+12537 4249 lt
+12840 4249 lt
+13144 4249 lt
+13448 4249 lt
+13752 4249 lt
+14056 4249 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4248 lt
+9499 4248 lt
+9802 4249 lt
+10106 4249 lt
+10410 4249 lt
+10714 4249 lt
+11018 4249 lt
+11321 4249 lt
+11625 4250 lt
+11929 4250 lt
+12233 4249 lt
+12537 4249 lt
+12840 4249 lt
+13144 4249 lt
+13448 4249 lt
+13752 4249 lt
+14056 4249 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+7980 4247 mt
+8283 4243 lt
+8587 4238 lt
+8891 4235 lt
+9195 4230 lt
+9499 4224 lt
+9802 4219 lt
+10106 4216 lt
+10410 4214 lt
+10714 4214 lt
+11018 4214 lt
+11321 4213 lt
+11625 4212 lt
+11929 4213 lt
+12233 4215 lt
+12537 4218 lt
+12840 4221 lt
+13144 4224 lt
+13448 4227 lt
+13752 4229 lt
+14056 4231 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+7980 4248 mt
+8283 4248 lt
+8587 4248 lt
+8891 4248 lt
+9195 4266 lt
+9499 4270 lt
+9802 4276 lt
+10106 4281 lt
+10410 4283 lt
+10714 4283 lt
+11018 4283 lt
+11321 4283 lt
+11625 4281 lt
+11929 4278 lt
+12233 4275 lt
+12537 4272 lt
+12840 4269 lt
+13144 4266 lt
+13448 4264 lt
+13752 4264 lt
+14056 4263 lt
+EndPath
+330 /F0 Font
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+300 /F0 Font
+1407 640 Mto
+1407 760 Lto
+1338 340 Mto
+(2) T
+2015 640 Mto
+2015 760 Lto
+1946 340 Mto
+(4) T
+2622 640 Mto
+2622 760 Lto
+2553 340 Mto
+(6) T
+3230 640 Mto
+3230 760 Lto
+3161 340 Mto
+(8) T
+3838 640 Mto
+3838 760 Lto
+3699 340 Mto
+(10)T
+4445 640 Mto
+4445 760 Lto
+4306 340 Mto
+(12)T
+5053 640 Mto
+5053 760 Lto
+4914 340 Mto
+(14)T
+5660 640 Mto
+5660 760 Lto
+5521 340 Mto
+(16)T
+6268 640 Mto
+6268 760 Lto
+6129 340 Mto
+(18)T
+6876 640 Mto
+6876 760 Lto
+6737 340 Mto
+(20)T
+800 640 Mto
+6876 640 Lto
+14 SetColor
+/Ltp { Linetype14 } def /Lwd { Linewidth14 } def Slt
+800 1773 Mto
+6876 1773 Lto
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+/Rot 360 def
+800 640 Mto
+860 640 Lto
+800 923 Mto
+860 923 Lto
+800 1206 Mto
+860 1206 Lto
+800 1489 Mto
+860 1489 Lto
+800 1773 Mto
+860 1773 Lto
+800 2056 Mto
+860 2056 Lto
+800 2339 Mto
+860 2339 Lto
+800 1206 Mto
+920 1206 Lto
+750 1106 Mto
+(\2550.1)T
+800 1773 Mto
+920 1773 Lto
+750 1673 Mto
+(0.0)T
+800 2340 Mto
+920 2340 Lto
+750 2240 Mto
+(0.1)T
+800 640 Mto
+800 2340 Lto
+/Rot 0 def
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 908 mt
+1103 827 lt
+1407 983 lt
+1711 1180 lt
+2015 1357 lt
+2319 1502 lt
+2622 1616 lt
+2926 1703 lt
+3230 1766 lt
+3534 1810 lt
+3838 1837 lt
+4141 1851 lt
+4445 1856 lt
+4749 1854 lt
+5053 1847 lt
+5357 1837 lt
+5660 1825 lt
+5964 1813 lt
+6268 1802 lt
+6572 1792 lt
+6876 1783 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 917 mt
+1103 838 lt
+1407 995 lt
+1711 1192 lt
+2015 1369 lt
+2319 1514 lt
+2622 1627 lt
+2926 1712 lt
+3230 1774 lt
+3534 1816 lt
+3838 1842 lt
+4141 1856 lt
+4445 1859 lt
+4749 1856 lt
+5053 1848 lt
+5357 1837 lt
+5660 1826 lt
+5964 1813 lt
+6268 1802 lt
+6572 1791 lt
+6876 1782 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 925 mt
+1103 850 lt
+1407 1007 lt
+1711 1205 lt
+2015 1381 lt
+2319 1525 lt
+2622 1637 lt
+2926 1722 lt
+3230 1783 lt
+3534 1823 lt
+3838 1848 lt
+4141 1860 lt
+4445 1863 lt
+4749 1858 lt
+5053 1850 lt
+5357 1838 lt
+5660 1826 lt
+5964 1813 lt
+6268 1801 lt
+6572 1791 lt
+6876 1782 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 934 mt
+1103 862 lt
+1407 1020 lt
+1711 1218 lt
+2015 1394 lt
+2319 1537 lt
+2622 1648 lt
+2926 1732 lt
+3230 1791 lt
+3534 1830 lt
+3838 1854 lt
+4141 1864 lt
+4445 1866 lt
+4749 1861 lt
+5053 1851 lt
+5357 1839 lt
+5660 1826 lt
+5964 1813 lt
+6268 1801 lt
+6572 1790 lt
+6876 1781 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 943 mt
+1103 874 lt
+1407 1033 lt
+1711 1231 lt
+2015 1407 lt
+2319 1549 lt
+2622 1659 lt
+2926 1742 lt
+3230 1799 lt
+3534 1837 lt
+3838 1859 lt
+4141 1869 lt
+4445 1869 lt
+4749 1863 lt
+5053 1853 lt
+5357 1840 lt
+5660 1826 lt
+5964 1813 lt
+6268 1800 lt
+6572 1789 lt
+6876 1780 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 953 mt
+1103 886 lt
+1407 1046 lt
+1711 1245 lt
+2015 1420 lt
+2319 1561 lt
+2622 1671 lt
+2926 1752 lt
+3230 1808 lt
+3534 1845 lt
+3838 1865 lt
+4141 1874 lt
+4445 1873 lt
+4749 1866 lt
+5053 1854 lt
+5357 1841 lt
+5660 1827 lt
+5964 1813 lt
+6268 1800 lt
+6572 1789 lt
+6876 1779 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 962 mt
+1103 899 lt
+1407 1060 lt
+1711 1259 lt
+2015 1433 lt
+2319 1574 lt
+2622 1682 lt
+2926 1762 lt
+3230 1817 lt
+3534 1852 lt
+3838 1872 lt
+4141 1879 lt
+4445 1876 lt
+4749 1868 lt
+5053 1856 lt
+5357 1842 lt
+5660 1827 lt
+5964 1813 lt
+6268 1799 lt
+6572 1788 lt
+6876 1778 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 972 mt
+1103 913 lt
+1407 1074 lt
+1711 1273 lt
+2015 1447 lt
+2319 1587 lt
+2622 1694 lt
+2926 1773 lt
+3230 1826 lt
+3534 1860 lt
+3838 1878 lt
+4141 1883 lt
+4445 1880 lt
+4749 1871 lt
+5053 1858 lt
+5357 1842 lt
+5660 1827 lt
+5964 1812 lt
+6268 1799 lt
+6572 1787 lt
+6876 1778 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 983 mt
+1103 926 lt
+1407 1089 lt
+1711 1287 lt
+2015 1461 lt
+2319 1600 lt
+2622 1706 lt
+2926 1783 lt
+3230 1836 lt
+3534 1868 lt
+3838 1884 lt
+4141 1888 lt
+4445 1884 lt
+4749 1873 lt
+5053 1859 lt
+5357 1843 lt
+5660 1827 lt
+5964 1812 lt
+6268 1798 lt
+6572 1787 lt
+6876 1777 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 994 mt
+1103 940 lt
+1407 1104 lt
+1711 1302 lt
+2015 1476 lt
+2319 1614 lt
+2622 1719 lt
+2926 1794 lt
+3230 1845 lt
+3534 1876 lt
+3838 1891 lt
+4141 1893 lt
+4445 1888 lt
+4749 1876 lt
+5053 1861 lt
+5357 1844 lt
+5660 1828 lt
+5964 1812 lt
+6268 1798 lt
+6572 1786 lt
+6876 1776 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1005 mt
+1103 955 lt
+1407 1120 lt
+1711 1318 lt
+2015 1491 lt
+2319 1628 lt
+2622 1732 lt
+2926 1806 lt
+3230 1855 lt
+3534 1884 lt
+3838 1897 lt
+4141 1899 lt
+4445 1891 lt
+4749 1879 lt
+5053 1863 lt
+5357 1845 lt
+5660 1828 lt
+5964 1812 lt
+6268 1797 lt
+6572 1785 lt
+6876 1775 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1016 mt
+1103 970 lt
+1407 1136 lt
+1711 1334 lt
+2015 1506 lt
+2319 1642 lt
+2622 1745 lt
+2926 1817 lt
+3230 1865 lt
+3534 1892 lt
+3838 1904 lt
+4141 1904 lt
+4445 1895 lt
+4749 1881 lt
+5053 1864 lt
+5357 1846 lt
+5660 1828 lt
+5964 1811 lt
+6268 1797 lt
+6572 1784 lt
+6876 1774 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1028 mt
+1103 986 lt
+1407 1152 lt
+1711 1350 lt
+2015 1522 lt
+2319 1657 lt
+2622 1758 lt
+2926 1829 lt
+3230 1875 lt
+3534 1901 lt
+3838 1911 lt
+4141 1909 lt
+4445 1899 lt
+4749 1884 lt
+5053 1866 lt
+5357 1847 lt
+5660 1828 lt
+5964 1811 lt
+6268 1796 lt
+6572 1783 lt
+6876 1773 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1040 mt
+1103 1002 lt
+1407 1169 lt
+1711 1367 lt
+2015 1538 lt
+2319 1672 lt
+2622 1772 lt
+2926 1841 lt
+3230 1886 lt
+3534 1910 lt
+3838 1918 lt
+4141 1915 lt
+4445 1903 lt
+4749 1887 lt
+5053 1868 lt
+5357 1848 lt
+5660 1829 lt
+5964 1811 lt
+6268 1795 lt
+6572 1783 lt
+6876 1772 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1053 mt
+1103 1019 lt
+1407 1187 lt
+1711 1385 lt
+2015 1555 lt
+2319 1688 lt
+2622 1786 lt
+2926 1854 lt
+3230 1896 lt
+3534 1918 lt
+3838 1925 lt
+4141 1920 lt
+4445 1908 lt
+4749 1890 lt
+5053 1870 lt
+5357 1849 lt
+5660 1829 lt
+5964 1811 lt
+6268 1795 lt
+6572 1782 lt
+6876 1771 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1066 mt
+1103 1036 lt
+1407 1205 lt
+1711 1403 lt
+2015 1572 lt
+2319 1704 lt
+2622 1800 lt
+2926 1866 lt
+3230 1907 lt
+3534 1928 lt
+3838 1932 lt
+4141 1926 lt
+4445 1912 lt
+4749 1893 lt
+5053 1871 lt
+5357 1850 lt
+5660 1829 lt
+5964 1810 lt
+6268 1794 lt
+6572 1781 lt
+6876 1770 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1080 mt
+1103 1054 lt
+1407 1224 lt
+1711 1421 lt
+2015 1589 lt
+2319 1720 lt
+2622 1815 lt
+2926 1879 lt
+3230 1918 lt
+3534 1937 lt
+3838 1940 lt
+4141 1932 lt
+4445 1916 lt
+4749 1896 lt
+5053 1873 lt
+5357 1851 lt
+5660 1829 lt
+5964 1810 lt
+6268 1794 lt
+6572 1780 lt
+6876 1769 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1095 mt
+1103 1073 lt
+1407 1243 lt
+1711 1440 lt
+2015 1608 lt
+2319 1737 lt
+2622 1830 lt
+2926 1893 lt
+3230 1930 lt
+3534 1946 lt
+3838 1948 lt
+4141 1938 lt
+4445 1920 lt
+4749 1899 lt
+5053 1875 lt
+5357 1852 lt
+5660 1830 lt
+5964 1810 lt
+6268 1793 lt
+6572 1779 lt
+6876 1768 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1110 mt
+1103 1092 lt
+1407 1264 lt
+1711 1460 lt
+2015 1626 lt
+2319 1754 lt
+2622 1846 lt
+2926 1907 lt
+3230 1942 lt
+3534 1956 lt
+3838 1956 lt
+4141 1944 lt
+4445 1925 lt
+4749 1902 lt
+5053 1877 lt
+5357 1853 lt
+5660 1830 lt
+5964 1809 lt
+6268 1792 lt
+6572 1778 lt
+6876 1767 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1125 mt
+1103 1112 lt
+1407 1285 lt
+1711 1480 lt
+2015 1646 lt
+2319 1772 lt
+2622 1862 lt
+2926 1921 lt
+3230 1954 lt
+3534 1966 lt
+3838 1964 lt
+4141 1950 lt
+4445 1929 lt
+4749 1905 lt
+5053 1879 lt
+5357 1854 lt
+5660 1830 lt
+5964 1809 lt
+6268 1791 lt
+6572 1777 lt
+6876 1766 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1142 mt
+1103 1133 lt
+1407 1306 lt
+1711 1502 lt
+2015 1666 lt
+2319 1790 lt
+2622 1878 lt
+2926 1935 lt
+3230 1966 lt
+3534 1976 lt
+3838 1972 lt
+4141 1956 lt
+4445 1934 lt
+4749 1908 lt
+5053 1881 lt
+5357 1854 lt
+5660 1830 lt
+5964 1809 lt
+6268 1791 lt
+6572 1776 lt
+6876 1765 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1159 mt
+1103 1155 lt
+1407 1329 lt
+1711 1524 lt
+2015 1687 lt
+2319 1809 lt
+2622 1895 lt
+2926 1950 lt
+3230 1979 lt
+3534 1987 lt
+3838 1980 lt
+4141 1963 lt
+4445 1939 lt
+4749 1911 lt
+5053 1883 lt
+5357 1855 lt
+5660 1830 lt
+5964 1808 lt
+6268 1790 lt
+6572 1775 lt
+6876 1764 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1177 mt
+1103 1179 lt
+1407 1353 lt
+1711 1547 lt
+2015 1708 lt
+2319 1829 lt
+2622 1913 lt
+2926 1965 lt
+3230 1992 lt
+3534 1998 lt
+3838 1989 lt
+4141 1969 lt
+4445 1944 lt
+4749 1915 lt
+5053 1885 lt
+5357 1856 lt
+5660 1830 lt
+5964 1808 lt
+6268 1789 lt
+6572 1774 lt
+6876 1762 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1196 mt
+1103 1203 lt
+1407 1377 lt
+1711 1570 lt
+2015 1730 lt
+2319 1849 lt
+2622 1931 lt
+2926 1981 lt
+3230 2005 lt
+3534 2009 lt
+3838 1997 lt
+4141 1976 lt
+4445 1948 lt
+4749 1918 lt
+5053 1887 lt
+5357 1857 lt
+5660 1831 lt
+5964 1807 lt
+6268 1788 lt
+6572 1773 lt
+6876 1761 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1216 mt
+1103 1228 lt
+1407 1403 lt
+1711 1595 lt
+2015 1753 lt
+2319 1870 lt
+2622 1950 lt
+2926 1997 lt
+3230 2019 lt
+3534 2020 lt
+3838 2006 lt
+4141 1983 lt
+4445 1953 lt
+4749 1921 lt
+5053 1889 lt
+5357 1858 lt
+5660 1831 lt
+5964 1807 lt
+6268 1787 lt
+6572 1772 lt
+6876 1760 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1237 mt
+1103 1255 lt
+1407 1431 lt
+1711 1621 lt
+2015 1777 lt
+2319 1892 lt
+2622 1969 lt
+2926 2014 lt
+3230 2033 lt
+3534 2031 lt
+3838 2015 lt
+4141 1990 lt
+4445 1958 lt
+4749 1925 lt
+5053 1891 lt
+5357 1859 lt
+5660 1831 lt
+5964 1806 lt
+6268 1786 lt
+6572 1770 lt
+6876 1759 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+800 1260 mt
+1103 1284 lt
+1407 1459 lt
+1711 1648 lt
+2015 1802 lt
+2319 1915 lt
+2622 1989 lt
+2926 2031 lt
+3230 2047 lt
+3534 2043 lt
+3838 2025 lt
+4141 1997 lt
+4445 1963 lt
+4749 1928 lt
+5053 1893 lt
+5357 1860 lt
+5660 1831 lt
+5964 1806 lt
+6268 1785 lt
+6572 1769 lt
+6876 1757 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+800 819 mt
+1103 688 lt
+1407 813 lt
+1711 1003 lt
+2015 1182 lt
+2319 1331 lt
+2622 1447 lt
+2926 1535 lt
+3230 1598 lt
+3534 1641 lt
+3838 1668 lt
+4141 1685 lt
+4445 1693 lt
+4749 1695 lt
+5053 1694 lt
+5357 1692 lt
+5660 1688 lt
+5964 1688 lt
+6268 1684 lt
+6572 1681 lt
+6876 1679 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+800 1384 mt
+1103 1455 lt
+1407 1651 lt
+1711 1773 lt
+2015 1980 lt
+2319 2084 lt
+2622 2154 lt
+2926 2195 lt
+3230 2210 lt
+3534 2207 lt
+3838 2188 lt
+4141 2157 lt
+4445 2120 lt
+4749 2080 lt
+5053 2038 lt
+5357 1999 lt
+5660 1963 lt
+5964 1935 lt
+6268 1906 lt
+6572 1881 lt
+6876 1861 lt
+EndPath
+330 /F0 Font
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+300 /F0 Font
+8587 640 Mto
+8587 760 Lto
+8518 340 Mto
+(2) T
+9195 640 Mto
+9195 760 Lto
+9126 340 Mto
+(4) T
+9802 640 Mto
+9802 760 Lto
+9733 340 Mto
+(6) T
+10410 640 Mto
+10410 760 Lto
+10341 340 Mto
+(8) T
+11018 640 Mto
+11018 760 Lto
+10879 340 Mto
+(10)T
+11625 640 Mto
+11625 760 Lto
+11486 340 Mto
+(12)T
+12233 640 Mto
+12233 760 Lto
+12094 340 Mto
+(14)T
+12840 640 Mto
+12840 760 Lto
+12701 340 Mto
+(16)T
+13448 640 Mto
+13448 760 Lto
+13309 340 Mto
+(18)T
+14056 640 Mto
+14056 760 Lto
+13917 340 Mto
+(20)T
+7980 640 Mto
+14056 640 Lto
+14 SetColor
+/Ltp { Linetype14 } def /Lwd { Linewidth14 } def Slt
+7980 2000 Mto
+14056 2000 Lto
+1 SetColor
+/Ltp { Linetype1 } def /Lwd { Linewidth1 } def Slt
+/Rot 360 def
+7980 640 Mto
+8040 640 Lto
+7980 979 Mto
+8040 979 Lto
+7980 1320 Mto
+8040 1320 Lto
+7980 1660 Mto
+8040 1660 Lto
+7980 2000 Mto
+8040 2000 Lto
+7980 2340 Mto
+8040 2340 Lto
+7980 1320 Mto
+8100 1320 Lto
+7930 1220 Mto
+(\2550.1)T
+7980 2000 Mto
+8100 2000 Lto
+7930 1900 Mto
+(0.0)T
+7980 640 Mto
+7980 2340 Lto
+/Rot 0 def
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 962 mt
+8283 1411 lt
+8587 1531 lt
+8891 1669 lt
+9195 1754 lt
+9499 1825 lt
+9802 1872 lt
+10106 1902 lt
+10410 1917 lt
+10714 1924 lt
+11018 1924 lt
+11321 1922 lt
+11625 1918 lt
+11929 1913 lt
+12233 1911 lt
+12537 1910 lt
+12840 1910 lt
+13144 1912 lt
+13448 1915 lt
+13752 1919 lt
+14056 1923 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 972 mt
+8283 1419 lt
+8587 1539 lt
+8891 1678 lt
+9195 1762 lt
+9499 1833 lt
+9802 1880 lt
+10106 1909 lt
+10410 1924 lt
+10714 1930 lt
+11018 1930 lt
+11321 1927 lt
+11625 1922 lt
+11929 1918 lt
+12233 1915 lt
+12537 1914 lt
+12840 1914 lt
+13144 1915 lt
+13448 1918 lt
+13752 1922 lt
+14056 1926 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 982 mt
+8283 1428 lt
+8587 1548 lt
+8891 1686 lt
+9195 1771 lt
+9499 1841 lt
+9802 1888 lt
+10106 1916 lt
+10410 1931 lt
+10714 1936 lt
+11018 1936 lt
+11321 1932 lt
+11625 1927 lt
+11929 1922 lt
+12233 1919 lt
+12537 1918 lt
+12840 1918 lt
+13144 1919 lt
+13448 1921 lt
+13752 1925 lt
+14056 1929 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 993 mt
+8283 1436 lt
+8587 1557 lt
+8891 1695 lt
+9195 1779 lt
+9499 1849 lt
+9802 1896 lt
+10106 1923 lt
+10410 1938 lt
+10714 1942 lt
+11018 1942 lt
+11321 1937 lt
+11625 1932 lt
+11929 1927 lt
+12233 1924 lt
+12537 1922 lt
+12840 1921 lt
+13144 1922 lt
+13448 1925 lt
+13752 1928 lt
+14056 1932 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1004 mt
+8283 1445 lt
+8587 1566 lt
+8891 1704 lt
+9195 1788 lt
+9499 1858 lt
+9802 1904 lt
+10106 1931 lt
+10410 1945 lt
+10714 1949 lt
+11018 1948 lt
+11321 1943 lt
+11625 1937 lt
+11929 1932 lt
+12233 1928 lt
+12537 1926 lt
+12840 1925 lt
+13144 1926 lt
+13448 1928 lt
+13752 1931 lt
+14056 1935 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1015 mt
+8283 1454 lt
+8587 1576 lt
+8891 1714 lt
+9195 1797 lt
+9499 1867 lt
+9802 1912 lt
+10106 1939 lt
+10410 1952 lt
+10714 1956 lt
+11018 1954 lt
+11321 1949 lt
+11625 1943 lt
+11929 1937 lt
+12233 1933 lt
+12537 1930 lt
+12840 1929 lt
+13144 1930 lt
+13448 1932 lt
+13752 1934 lt
+14056 1938 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1027 mt
+8283 1464 lt
+8587 1586 lt
+8891 1723 lt
+9195 1807 lt
+9499 1876 lt
+9802 1920 lt
+10106 1947 lt
+10410 1959 lt
+10714 1962 lt
+11018 1960 lt
+11321 1954 lt
+11625 1948 lt
+11929 1942 lt
+12233 1937 lt
+12537 1935 lt
+12840 1933 lt
+13144 1934 lt
+13448 1935 lt
+13752 1938 lt
+14056 1941 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1039 mt
+8283 1473 lt
+8587 1596 lt
+8891 1733 lt
+9195 1816 lt
+9499 1885 lt
+9802 1929 lt
+10106 1955 lt
+10410 1967 lt
+10714 1969 lt
+11018 1966 lt
+11321 1960 lt
+11625 1954 lt
+11929 1947 lt
+12233 1942 lt
+12537 1939 lt
+12840 1937 lt
+13144 1938 lt
+13448 1939 lt
+13752 1941 lt
+14056 1944 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1052 mt
+8283 1483 lt
+8587 1606 lt
+8891 1743 lt
+9195 1826 lt
+9499 1894 lt
+9802 1938 lt
+10106 1963 lt
+10410 1974 lt
+10714 1977 lt
+11018 1973 lt
+11321 1967 lt
+11625 1959 lt
+11929 1952 lt
+12233 1947 lt
+12537 1944 lt
+12840 1942 lt
+13144 1942 lt
+13448 1943 lt
+13752 1945 lt
+14056 1948 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1064 mt
+8283 1493 lt
+8587 1616 lt
+8891 1753 lt
+9195 1836 lt
+9499 1904 lt
+9802 1947 lt
+10106 1971 lt
+10410 1982 lt
+10714 1984 lt
+11018 1980 lt
+11321 1973 lt
+11625 1965 lt
+11929 1958 lt
+12233 1952 lt
+12537 1948 lt
+12840 1946 lt
+13144 1946 lt
+13448 1946 lt
+13752 1948 lt
+14056 1951 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1078 mt
+8283 1504 lt
+8587 1627 lt
+8891 1764 lt
+9195 1847 lt
+9499 1914 lt
+9802 1956 lt
+10106 1980 lt
+10410 1990 lt
+10714 1991 lt
+11018 1987 lt
+11321 1979 lt
+11625 1971 lt
+11929 1963 lt
+12233 1957 lt
+12537 1953 lt
+12840 1951 lt
+13144 1950 lt
+13448 1950 lt
+13752 1952 lt
+14056 1955 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1091 mt
+8283 1515 lt
+8587 1639 lt
+8891 1775 lt
+9195 1858 lt
+9499 1924 lt
+9802 1966 lt
+10106 1989 lt
+10410 1999 lt
+10714 1999 lt
+11018 1994 lt
+11321 1986 lt
+11625 1977 lt
+11929 1969 lt
+12233 1962 lt
+12537 1958 lt
+12840 1955 lt
+13144 1954 lt
+13448 1955 lt
+13752 1956 lt
+14056 1958 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1106 mt
+8283 1526 lt
+8587 1650 lt
+8891 1786 lt
+9195 1868 lt
+9499 1934 lt
+9802 1975 lt
+10106 1998 lt
+10410 2007 lt
+10714 2007 lt
+11018 2001 lt
+11321 1992 lt
+11625 1983 lt
+11929 1975 lt
+12233 1968 lt
+12537 1963 lt
+12840 1960 lt
+13144 1959 lt
+13448 1959 lt
+13752 1960 lt
+14056 1962 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1120 mt
+8283 1538 lt
+8587 1662 lt
+8891 1798 lt
+9195 1880 lt
+9499 1945 lt
+9802 1985 lt
+10106 2007 lt
+10410 2016 lt
+10714 2015 lt
+11018 2008 lt
+11321 1999 lt
+11625 1990 lt
+11929 1981 lt
+12233 1973 lt
+12537 1968 lt
+12840 1965 lt
+13144 1963 lt
+13448 1963 lt
+13752 1964 lt
+14056 1966 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1136 mt
+8283 1550 lt
+8587 1674 lt
+8891 1810 lt
+9195 1891 lt
+9499 1956 lt
+9802 1996 lt
+10106 2017 lt
+10410 2025 lt
+10714 2023 lt
+11018 2016 lt
+11321 2006 lt
+11625 1996 lt
+11929 1987 lt
+12233 1979 lt
+12537 1973 lt
+12840 1970 lt
+13144 1968 lt
+13448 1967 lt
+13752 1968 lt
+14056 1970 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1152 mt
+8283 1562 lt
+8587 1687 lt
+8891 1822 lt
+9195 1903 lt
+9499 1967 lt
+9802 2006 lt
+10106 2027 lt
+10410 2034 lt
+10714 2031 lt
+11018 2024 lt
+11321 2013 lt
+11625 2003 lt
+11929 1993 lt
+12233 1985 lt
+12537 1979 lt
+12840 1975 lt
+13144 1973 lt
+13448 1972 lt
+13752 1972 lt
+14056 1974 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1168 mt
+8283 1575 lt
+8587 1700 lt
+8891 1835 lt
+9195 1915 lt
+9499 1979 lt
+9802 2017 lt
+10106 2037 lt
+10410 2043 lt
+10714 2040 lt
+11018 2032 lt
+11321 2021 lt
+11625 2010 lt
+11929 1999 lt
+12233 1991 lt
+12537 1985 lt
+12840 1980 lt
+13144 1978 lt
+13448 1977 lt
+13752 1977 lt
+14056 1978 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1186 mt
+8283 1588 lt
+8587 1714 lt
+8891 1848 lt
+9195 1928 lt
+9499 1991 lt
+9802 2028 lt
+10106 2047 lt
+10410 2053 lt
+10714 2049 lt
+11018 2040 lt
+11321 2028 lt
+11625 2017 lt
+11929 2006 lt
+12233 1997 lt
+12537 1990 lt
+12840 1986 lt
+13144 1983 lt
+13448 1981 lt
+13752 1981 lt
+14056 1982 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1204 mt
+8283 1602 lt
+8587 1728 lt
+8891 1861 lt
+9195 1941 lt
+9499 2003 lt
+9802 2040 lt
+10106 2058 lt
+10410 2062 lt
+10714 2058 lt
+11018 2048 lt
+11321 2036 lt
+11625 2024 lt
+11929 2013 lt
+12233 2003 lt
+12537 1996 lt
+12840 1991 lt
+13144 1988 lt
+13448 1986 lt
+13752 1986 lt
+14056 1986 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1223 mt
+8283 1616 lt
+8587 1742 lt
+8891 1875 lt
+9195 1954 lt
+9499 2015 lt
+9802 2051 lt
+10106 2069 lt
+10410 2073 lt
+10714 2067 lt
+11018 2057 lt
+11321 2044 lt
+11625 2031 lt
+11929 2020 lt
+12233 2010 lt
+12537 2002 lt
+12840 1997 lt
+13144 1993 lt
+13448 1991 lt
+13752 1991 lt
+14056 1991 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1242 mt
+8283 1631 lt
+8587 1757 lt
+8891 1889 lt
+9195 1968 lt
+9499 2028 lt
+9802 2063 lt
+10106 2080 lt
+10410 2083 lt
+10714 2077 lt
+11018 2066 lt
+11321 2053 lt
+11625 2039 lt
+11929 2027 lt
+12233 2017 lt
+12537 2009 lt
+12840 2003 lt
+13144 1999 lt
+13448 1997 lt
+13752 1996 lt
+14056 1995 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1263 mt
+8283 1647 lt
+8587 1773 lt
+8891 1904 lt
+9195 1982 lt
+9499 2042 lt
+9802 2076 lt
+10106 2092 lt
+10410 2094 lt
+10714 2087 lt
+11018 2075 lt
+11321 2061 lt
+11625 2047 lt
+11929 2035 lt
+12233 2024 lt
+12537 2015 lt
+12840 2009 lt
+13144 2005 lt
+13448 2002 lt
+13752 2001 lt
+14056 2000 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1285 mt
+8283 1663 lt
+8587 1789 lt
+8891 1919 lt
+9195 1997 lt
+9499 2055 lt
+9802 2089 lt
+10106 2104 lt
+10410 2105 lt
+10714 2097 lt
+11018 2085 lt
+11321 2070 lt
+11625 2055 lt
+11929 2042 lt
+12233 2031 lt
+12537 2022 lt
+12840 2015 lt
+13144 2011 lt
+13448 2008 lt
+13752 2006 lt
+14056 2005 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1307 mt
+8283 1680 lt
+8587 1806 lt
+8891 1935 lt
+9195 2012 lt
+9499 2070 lt
+9802 2102 lt
+10106 2116 lt
+10410 2116 lt
+10714 2108 lt
+11018 2094 lt
+11321 2079 lt
+11625 2064 lt
+11929 2050 lt
+12233 2038 lt
+12537 2029 lt
+12840 2022 lt
+13144 2017 lt
+13448 2013 lt
+13752 2011 lt
+14056 2010 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1331 mt
+8283 1698 lt
+8587 1824 lt
+8891 1952 lt
+9195 2028 lt
+9499 2084 lt
+9802 2116 lt
+10106 2129 lt
+10410 2128 lt
+10714 2119 lt
+11018 2104 lt
+11321 2088 lt
+11625 2072 lt
+11929 2058 lt
+12233 2046 lt
+12537 2036 lt
+12840 2028 lt
+13144 2023 lt
+13448 2019 lt
+13752 2017 lt
+14056 2016 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1357 mt
+8283 1717 lt
+8587 1843 lt
+8891 1969 lt
+9195 2045 lt
+9499 2100 lt
+9802 2130 lt
+10106 2142 lt
+10410 2140 lt
+10714 2130 lt
+11018 2115 lt
+11321 2098 lt
+11625 2081 lt
+11929 2067 lt
+12233 2054 lt
+12537 2043 lt
+12840 2035 lt
+13144 2030 lt
+13448 2026 lt
+13752 2023 lt
+14056 2021 lt
+EndPath
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+2 SetColor
+/Ltp { Linetype2 } def /Lwd { Linewidth2 } def Slt
+BgnPath
+7980 1384 mt
+8283 1737 lt
+8587 1862 lt
+8891 1987 lt
+9195 2062 lt
+9499 2116 lt
+9802 2144 lt
+10106 2155 lt
+10410 2152 lt
+10714 2141 lt
+11018 2125 lt
+11321 2108 lt
+11625 2091 lt
+11929 2076 lt
+12233 2062 lt
+12537 2051 lt
+12840 2043 lt
+13144 2036 lt
+13448 2032 lt
+13752 2029 lt
+14056 2027 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+7980 854 mt
+8283 1211 lt
+8587 1358 lt
+8891 1483 lt
+9195 1572 lt
+9499 1644 lt
+9802 1685 lt
+10106 1715 lt
+10410 1724 lt
+10714 1733 lt
+11018 1732 lt
+11321 1738 lt
+11625 1740 lt
+11929 1747 lt
+12233 1753 lt
+12537 1762 lt
+12840 1771 lt
+13144 1781 lt
+13448 1789 lt
+13752 1798 lt
+14056 1805 lt
+EndPath
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+5 SetColor
+/Ltp { Linetype5 } def /Lwd { Linewidth5 } def Slt
+BgnPath
+7980 1534 mt
+8283 1923 lt
+8587 2000 lt
+8891 2000 lt
+9195 2245 lt
+9499 2289 lt
+9802 2326 lt
+10106 2331 lt
+10410 2337 lt
+10714 2320 lt
+11018 2304 lt
+11321 2275 lt
+11625 2250 lt
+11929 2220 lt
+12233 2197 lt
+12537 2174 lt
+12840 2157 lt
+13144 2143 lt
+13448 2132 lt
+13752 2124 lt
+14056 2118 lt
+EndPath
+%Graph end
+
+restore
+showpage
+%%EOF
